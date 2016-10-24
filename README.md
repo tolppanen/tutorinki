@@ -2,6 +2,8 @@
 
 Design of WWW-Services course. Laura Niemi, Ilona Rahnasto & Antti Tolppanen
 
+Ilona täällä moi!
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
