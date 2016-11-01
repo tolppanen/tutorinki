@@ -1,0 +1,12 @@
+#login_panel {
+	position: relative;
+	display: block;
+	margin: auto;
+	width: 300px;
+	padding: 30px;
+	background-color: rgba(200,200,200,0.3);
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}

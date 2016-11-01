@@ -6,9 +6,42 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
   </head>
 
   <body>
-    <%= yield %>
+  <div class="mdl-layout mdl-js-layout">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Tutorinki</span>
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="#">Placeholder</a>
+        <a class="mdl-navigation__link" href="#">Placeholder</a>
+        <% if user_signed_in? %>
+        	<a class="mdl-navigation__link" href="#"><%= current_user.first_name %></a>
+        <% else %>
+        	<a class="mdl-navigation__link" href="#">Login</a>
+        <% end %>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Tutorinki</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="#">Placeholder</a>
+      <a class="mdl-navigation__link" href="#">Placeholder</a>
+      <a class="mdl-navigation__link" href="#">Placeholder</a>
+      <a class="mdl-navigation__link" href="#">Placeholder</a>
+      <a class="mdl-navigation__link" href="#">Placeholder</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+           <%= yield %>
+      </main>
+  </div>
+</div>
+<!--   <h5>Tutorinki -  This title is in views/layouts/application.html.erb which is shown on every page - navigation should go here</h5> -->
+
   </body>
 </html>

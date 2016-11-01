@@ -8,6 +8,9 @@ gem 'pg'
 
 gem 'devise'
 
+gem 'material_design_lite-rails', '~> 1.2'
+
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
