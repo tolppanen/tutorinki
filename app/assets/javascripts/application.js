@@ -14,4 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-//= require material
+
+// Initialize collapse button
+$(".button-collapse").sideNav();
+// Initialize collapsible (uncomment the line below if you use the dropdown variation)
+//$('.collapsible').collapsible();
