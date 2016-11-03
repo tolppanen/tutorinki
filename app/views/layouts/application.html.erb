@@ -20,7 +20,7 @@
 
 <body>
 
-    <main class="mdl-layout__content">
+
       <ul id="slide-out" class="side-nav fixed collapsible" data-collapsible="accordion">
          <li><div class="userView">
            <div class="background">
@@ -71,8 +71,10 @@
 
        </ul>
        <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+       <div id="app_content">
       <%= yield %>
-    </main>
+      </div>
+
   </div>
 </div>
 
