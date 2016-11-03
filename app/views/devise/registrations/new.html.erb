@@ -31,9 +31,9 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-    <div class="field">
-    <%= f.label "Register as a teacher" %><br />
-    <%= f.check_box :teacher, autocomplete: "off" %>
+  <div class="field">
+    <%= f.check_box :teacher, :class => 'mdl-checkbox__input' %>
+    <%= f.label :teacher %>
   </div>
 
   <div class="actions">

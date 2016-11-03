@@ -22,10 +22,9 @@
 
       <ul id="slide-out" class="side-nav fixed collapsible" data-collapsible="accordion">
          <li><div class="userView background_navigation">
-           <div class="background_navigation">
-
-           </div>
+           <div class="background_navigation"></div>
            <% if user_signed_in? %>
+           <%= image_tag(current_user.avatar.url(:thumb)) %>
            <a href="#!name"><span class="white-text name"><%= current_user.first_name %></span></a>
            <a href="#!email"><span class="white-text email"><%= current_user.email %></span></a>
            <% else %>
@@ -69,9 +68,24 @@
                </div>
             </li>
         <% end %>
-
-         <li><div class="collapsible-header"><i class="large material-icons">contacts</i>Tuutorit</div></li>
-
+         <li>
+           <%= link_to(root_path) do %>
+           <div class="collapsible-header"><i class="large material-icons">home</i>Koti</div>
+           <% end %>
+         </li>
+         <li><div class="collapsible-header"><i class="large material-icons">supervisor_account</i>Tuutorit</div></li>
+         <% if user_signed_in? %>
+         <li>
+           <%= link_to(edit_user_registration_path) do %>
+             <div class="collapsible-header"><i class="large material-icons">account_circle</i>Omat tiedot</div>
+           <% end %>
+         </li>
+         <li>
+           <%= link_to(destroy_user_session_path, :method => :delete) do %>
+             <div class="collapsible-header"><i class="large material-icons">exit_to_app</i>Kirjaudu ulos</div>
+           <% end %>
+         </li>
+         <% end %>
        </ul>
        <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
        <div id="app_content">

@@ -39,7 +39,8 @@ private
 
 # my custom fields are :first_name and :last_name
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :email, :teacher])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :email, :teacher, :avatar])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :email, :avatar])
   end
 
   # The path used after sign up.
