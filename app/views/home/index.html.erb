@@ -8,6 +8,14 @@
 
 
 <h4>Revi sitä märkää: <%= current_user.email %> </h4>
+
+<ul>
+  <% @users.each do |u| %>
+    <li><%= u.first_name %> <%= u.last_name %> - <%= u.email %></li>
+  <% end %>
+</ul>
+
+
 <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
 <% else %>
 <%= link_to "Sign in", new_user_session_path, :method => :get %>

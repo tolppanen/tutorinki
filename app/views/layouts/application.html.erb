@@ -20,17 +20,23 @@
 
 <body>
 
-    <main class="mdl-layout__content">
       <ul id="slide-out" class="side-nav fixed collapsible" data-collapsible="accordion">
          <li><div class="userView background_navigation">
            <div class="background_navigation">
 
            </div>
-           <a href="#!name"><span class="white-text name">John Doe</span></a>
-           <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+           <% if user_signed_in? %>
+           <a href="#!name"><span class="white-text name"><%= current_user.first_name %></span></a>
+           <a href="#!email"><span class="white-text email"><%= current_user.email %></span></a>
+           <% else %>
+           <div id="titleblock">
+           <h3>Tutorinki</h3>
+          </div>
+           <% end %>
          </div></li>
-<li>
-         <div class="collapsible-header"><i class="material-icons">filter_drama</i>Login</div>
+        <% if !user_signed_in? %>
+         <li>
+         <div class="collapsible-header"><i class="large material-icons">perm_identity</i>Kirjaudu</div>
                <div class="collapsible-body">
                  <div id="login_panel">
 
@@ -61,13 +67,10 @@
                    <!-- <%= render "devise/shared/links" %> -->
                  </div>
                </div>
-</li>
+            </li>
+        <% end %>
 
-         <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-         <li><a href="#!">Second Link</a></li>
-         <li><div class="divider"></div></li>
-         <li><a class="subheader">Subheader</a></li>
-         <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+         <li><div class="collapsible-header"><i class="large material-icons">contacts</i>Tuutorit</div></li>
 
        </ul>
        <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>

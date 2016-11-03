@@ -22,6 +22,17 @@
 }
 }
 
+.userView {
+  height: 95px;
+}
+
 .background_navigation {
   background-color: #ff8f00;
+}
+
+#titleblock {
+  display: block;
+top: -30px;
+position: relative;
+color: white;
 }
