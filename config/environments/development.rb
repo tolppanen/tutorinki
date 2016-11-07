@@ -26,9 +26,17 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
-  Paperclip::Attachment.default_options[:url] = 'http://s3.amazonaws.com/tutorinki/'
-  Paperclip::Attachment.default_options[:path] = '/avatars/:filename'
+config.paperclip_defaults = {
+  :storage => :s3,
+  :bucket => 'tutorinki',
+  :s3_region => 'us'
+}
 
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :bucket => 'tutorinki',
+    :s3_region =>'us'
+  }
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
