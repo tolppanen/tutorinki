@@ -25,6 +25,18 @@ Rails.application.configure do
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :bucket => 'tutorinki-avatars',
+    :s3_region => 'eu-west-1'
+  }
+
+    config.paperclip_defaults = {
+      :storage => :s3,
+      :bucket => 'tutorinki-avatars',
+      :s3_region =>'eu-west-1'
+    }
+
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
