@@ -10,20 +10,16 @@
 <h4>Revi sitä märkää: <%= current_user.email %> </h4>
 <%= current_user.avatar.url %>
 
-<ul>
-  <% @users.each do |u| %>
-    <li><%= u.first_name %> <%= u.last_name %> - <%= u.email %></li>
-  <% end %>
-</ul>
-
-
-<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-<% else %>
-<%= link_to "Sign in", new_user_session_path, :method => :get %>
 <% end %>
 
 <% if !user_signed_in? %>
 
+<header class="header-video-container-main">
+<video autoplay="" loop="" class="fillWidth">
+<source src="https://player.vimeo.com/external/143715816.hd.mp4?s=df3e317fdb1e510e5a0ba1ed9919d996&amp;profile_id=119" type="video/mp4">Your browser does not support the video tag. I suggest you upgrade your browser.
+</video>
+<div id="overlay"></div>
+</header>
 
 
 <% end %>

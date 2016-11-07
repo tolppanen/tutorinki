@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   #devise_for :users, :controllers => { registrations: 'registrations' }
 	root to: "home#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get 'teachers/:id' => 'teachers#show'
+  get 'teachers/:id' => 'teachers#show' #page for showing a single user's profle
+  get 'contacts' => 'teachers#contacts' #page for listing accepted contacts
 end

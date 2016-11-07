@@ -61,7 +61,7 @@
                      <%= f.submit "Log in", :class => 'waves-effect waves-light btn' %>
                    </div>
                    <% end %>
-                   <!-- <%= render "devise/shared/links" %> -->
+
                  </div>
                </div>
             </li>
@@ -71,8 +71,11 @@
            <div class="collapsible-header"><i class="large material-icons">home</i>Koti</div>
            <% end %>
          </li>
-         <li><div class="collapsible-header"><i class="large material-icons">supervisor_account</i>Tuutorit</div></li>
+
          <% if user_signed_in? %>
+         <%= link_to(contacts_path) do %>
+          <li><div class="collapsible-header"><i class="large material-icons">supervisor_account</i>Omat tuutorit</div></li>
+           <% end %>
          <li>
            <%= link_to(edit_user_registration_path) do %>
              <div class="collapsible-header"><i class="large material-icons">account_circle</i>Omat tiedot</div>
@@ -87,7 +90,7 @@
        </ul>
        <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
        <div id="app_content">
-      <%= yield %>
+         <%= yield %>
       </div>
 
   </div>
