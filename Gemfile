@@ -24,6 +24,8 @@ gem 'coffee-script-source', '1.8.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'faker'
 
+gem 'geocoder'
+
 gem 'paperclip', '~> 5.0.0.beta1'
 
 # Use jquery as the JavaScript library
