@@ -29,13 +29,13 @@ Rails.application.configure do
 config.paperclip_defaults = {
   :storage => :s3,
   :bucket => 'tutorinki',
-  :s3_region => 'us'
+  :s3_region => 'eu-west-1'
 }
 
   config.paperclip_defaults = {
     :storage => :s3,
     :bucket => 'tutorinki',
-    :s3_region =>'us'
+    :s3_region =>'eu-west-1'
   }
 
   # Don't care if the mailer can't send.
