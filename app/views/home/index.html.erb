@@ -8,6 +8,7 @@
 
 
 <h4>Revi sitä märkää: <%= current_user.email %> </h4>
+<%= current_user.avatar.url %>
 
 <ul>
   <% @users.each do |u| %>
