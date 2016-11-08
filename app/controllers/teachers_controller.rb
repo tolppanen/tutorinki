@@ -6,14 +6,15 @@ class TeachersController < ApplicationController
 	def index
 		#Find relevan teachers, the query should include subject and level presented as integers correspnding
 		#to specific values in the Skill-model
-		@query = params[:subject_query]
-		@subject = Subject.where(:name => @query).last
-		puts params[:subject_query]
-		puts "========="
-		@results = @subject.users.all
-	end
-
-	def all
+		if params[:subject_query] != nil
+			@query = params[:subject_query]
+			@subject = Subject.where(:name => @query).last
+			puts params[:subject_query]
+			puts "========="
+			@results = @subject.users.where(teacher: true).all
+		else
+			@results = User.where(teacher: true).all
+		end
 	end
 
 	def contacts
