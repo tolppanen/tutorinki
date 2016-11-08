@@ -22,6 +22,8 @@
 }
 }
 
+
+
 .userView {
   height: 95px;
 }
@@ -32,9 +34,9 @@
 
 #titleblock {
   display: block;
-top: -30px;
-position: relative;
-color: white;
+  top: -30px;
+  position: relative;
+  color: white;
 }
 
 .side-nav a {

@@ -1,5 +1,5 @@
 <ul class="collection">
-  <% @allteachers.each do |teacher|%>
+  <% @results.each do |teacher|%>
     <li class="collection-item avatar">
       <i><%= image_tag(teacher.avatar.url(:thumb), :class => 'round-image-50') %></i> -->
       <span class="title"><%= teacher.first_name %> <%= teacher.last_name %></span>
@@ -9,4 +9,4 @@
       <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
     </li>
   <% end %>
-  </ul>      
+  </ul>
