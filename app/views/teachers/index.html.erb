@@ -1,12 +1,25 @@
-<ul class="collection">
+<span class="search-result-header">Tutorit haulla: </span>
+
+<div id="search-chips">
+  <div class="chip">
+    <%= @subject.name %>
+    <i class="close material-icons">close</i>
+  </div>
+  <div class="chip">
+    Tässä olisi taso jos sillä voisi hakea
+    <i class="close material-icons">close</i>
+  </div>
+</div>
+
+<ul class="collection search-result-list">
   <% @results.each do |teacher|%>
     <li class="collection-item avatar">
-      <i><%= image_tag(teacher.avatar.url(:thumb), :class => 'round-image-50') %></i> -->
+      <i><%= image_tag(teacher.avatar.url(:thumb), :class => 'circle') %></i>
       <span class="title"><%= teacher.first_name %> <%= teacher.last_name %></span>
       <p>Helsinki<br>
          Hei olen <%= teacher.first_name %>!
       </p>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+      <a href="#!" class="secondary-content"><i class="material-icons">input</i></a>
     </li>
   <% end %>
   </ul>
