@@ -7,15 +7,24 @@
 .search-result-list {
 	width: 600px;
     margin: auto !important;
+    position:absolute;
 }
 
 .search-result-header {
-	margin:auto;
+	margin-bottom: 30px;
 	color:grey;
-	display: block;
+	text-align: center;
+	position:relative;
 }
 
 #search-chips {
-	margin:auto;
-	display:block;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	position:relative;
+	margin-bottom: 30px;
+}
+
+.search-item{
+	color:black !important;
 }

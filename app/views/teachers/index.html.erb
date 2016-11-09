@@ -1,4 +1,4 @@
-<span class="search-result-header">Tutorit haulla: </span>
+<h4 class="search-result-header">Tutorit haulla: </h4>
 
 <div id="search-chips">
   <div class="chip">
@@ -6,20 +6,19 @@
     <i class="close material-icons">close</i>
   </div>
   <div class="chip">
-    Tässä olisi taso jos sillä voisi hakea
+    <%= @subject.detail %>
     <i class="close material-icons">close</i>
   </div>
 </div>
 
 <ul class="collection search-result-list">
   <% @results.each do |teacher|%>
-    <li class="collection-item avatar">
+    <a href="#!"<li class="collection-item avatar search-item">
       <i><%= image_tag(teacher.avatar.url(:thumb), :class => 'circle') %></i>
       <span class="title"><%= teacher.first_name %> <%= teacher.last_name %></span>
-      <p>Helsinki<br>
+      <p><%= teacher.city %><br>
          Hei olen <%= teacher.first_name %>!
       </p>
-      <a href="#!" class="secondary-content"><i class="material-icons">input</i></a>
-    </li>
+    </li></a>
   <% end %>
   </ul>
