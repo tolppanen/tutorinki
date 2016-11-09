@@ -1,3 +1,30 @@
-// Place all the styles related to the Teachers controller here.
+/*
+ * Place all the styles related to the Teachers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+*/
+
+.search-result-list {
+	width: 600px;
+    margin: auto !important;
+    position:absolute;
+}
+
+.search-result-header {
+	margin-bottom: 30px;
+	color:grey;
+	text-align: center;
+	position:relative;
+}
+
+#search-chips {
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	position:relative;
+	margin-bottom: 30px;
+}
+
+.search-item{
+	color:black !important;
+}
