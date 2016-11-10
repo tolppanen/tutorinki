@@ -1,1 +1,32 @@
-<h1>Teacher's profile number <%= @teacher_id %></h1>
+<h1>Teacher <%= @teacher.first_name %> <%= @teacher.last_name %>  </h1>
+
+<%= form_for(@newcomment, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+
+<div class="form-group">
+  <div class="control-label col-sm-2">
+    <%= f.label :comment %>
+  </div>
+
+  <div class="col-sm-8">
+    <%= f.text_area :body, rows: 3, class: "form-control", placeholder: "Please enter a comment", autofocus: true %>
+  </div>
+</div>
+<%= f.hidden_field :target, :value => @teacher.id %>
+<%= f.hidden_field :poster, :value => current_user.id %>
+<div class="form-group">
+  <div class="center col-sm-offset-1 col-sm-10">
+    <%= f.submit%>
+  </div>
+</div>
+
+<% end %>
+
+<ul>
+  <% @comments.each do |comment| %>
+  <li>
+    <div>
+      <p><%= comment.poster.first_name %>: <%= comment.body %></p>
+    </div>
+  </li>
+  <% end %>
+</ul>

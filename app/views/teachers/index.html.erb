@@ -1,5 +1,5 @@
 <h4 class="search-result-header">Tutorit haulla: </h4>
-
+<% if @subject != nil %>
 <div id="search-chips">
   <div class="chip">
     <%= @subject.name %>
@@ -10,6 +10,7 @@
     <i class="close material-icons">close</i>
   </div>
 </div>
+<% end %>
 
 <ul class="collection search-result-list">
   <% @results.each do |teacher|%>

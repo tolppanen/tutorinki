@@ -1,22 +1,23 @@
 class TeachersController < ApplicationController
 	def show
-		@teacher_id = params[:id]
+		@teacher = User.find(params[:id])
+		@comments = Comment.where(target_id: params[:id]).reverse
+		@newcomment = Comment.new
 	end
 
 	def index
 		#Find relevan teachers, the query should include subject and level presented as integers correspnding
 		#to specific values in the Skill-model
 		@query = params[:subject_query]
+		@results = User.where(teacher: true).all
 		if @query != nil
-		if @query != ""
+		 if @query != ""
 			@query = params[:subject_query]
 			@subject = Subject.where(:name => @query).last
 			@results = @subject.users.where(teacher: true).all
-		else
-			@results = User.where(teacher: true).all
-		end
+	 end
 	end
-	end
+end
 
 	def contacts
 		 contacts = []
