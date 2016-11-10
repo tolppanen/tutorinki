@@ -9,3 +9,39 @@ textarea:focus, input:focus{
 .input-field label.active {
 	transform: translateY(-30px) !important;
 }
+
+.signup-view {
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	position:relative;
+	padding-bottom: 50px;
+}
+
+.signup-field {
+	width:500px;
+	padding:5px;
+}
+
+#signup-header {
+	color:grey;
+	text-align: center;
+	position:relative;
+	padding-bottom: 30px;
+}
+
+.signup-accept {
+	padding-top:5px;
+}
+
+.profile-edit-view {
+	display:flex;
+	justify-content:center;
+	position:relative;
+	padding-bottom: 30px;
+}
+
+.add-avatar {
+   /*TBA*/
+}
+
