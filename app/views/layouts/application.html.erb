@@ -26,6 +26,9 @@
       <div class="background_navigation"></div>
       <% if user_signed_in? %>
       <%= image_tag(current_user.avatar.url(:thumb), :class => 'round-image-50') %>
+      <div id="titleblock-logged">
+        <h3><%= current_user.first_name %></h3>
+      </div>
       <% else %>
       <div id="titleblock">
         <h3>Tutorinki</h3>

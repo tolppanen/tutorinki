@@ -39,6 +39,14 @@
   color: white;
 }
 
+#titleblock-logged {
+  display: flex;
+  position: absolute;
+  color: white;
+  padding-left: 100px;
+  top: 10px;
+}
+
 .side-nav a {
   padding-left: 0px !important;
   padding-right: 0px !important

@@ -5,7 +5,7 @@
 .header-video-container, .header-video-container-main {
   display: block;
   position: absolute;
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   top: 0;
@@ -17,6 +17,12 @@
   }
 
 #overlay {
-  position: position;
+  position: relative;
   width: 100%;
 }
+ .index-search-input {
+  position:absolute;
+  display:flex;
+    align-items:center;
+    justify-content: center;
+ }

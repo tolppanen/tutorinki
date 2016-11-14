@@ -4,11 +4,20 @@
 
 <% if current_user.teacher %>
 <h5> You are a teacher </h5>
+<% else %>
+<header class="header-video-container-main">
+<video autoplay="" loop="" class="fillWidth">
+<source src="https://player.vimeo.com/external/143715816.hd.mp4?s=df3e317fdb1e510e5a0ba1ed9919d996&amp;profile_id=119" type="video/mp4">Your browser does not support the video tag. I suggest you upgrade your browser.
+</video>
+<div id="overlay"></div>
+<div class="index-search-input">
+  TESTITEKSTI
+         <%= form_tag(teachers_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :subject_query, params[:subject_query], placeholder: "Hae opetusta" %>
+         <% end %>
+       </div>
+</header>
 <% end %>
-
-
-<h4>Revi sitä märkää: <%= current_user.email %> </h4>
-<%= current_user.avatar.url %>
 
 <% end %>
 
