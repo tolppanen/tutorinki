@@ -43,7 +43,7 @@
        <div class="input-field col s12">
          <%= form_tag(teachers_path, :method => "get", id: "search-form") do %>
           <%= text_field_tag :subject_query, params[:subject_query], placeholder: "Hae opetusta" %>
-          <%= submit_tag "Hae" %>
+          <%= submit_tag "Hae", :class => 'waves-effect waves-light btn' %>
          <% end %>
        </div>
      </div>
@@ -57,7 +57,7 @@
       <div class="collapsible-body">
         <div id="login_panel">
 
-          <h5 class="mdl-layout__header-row login_title">Log in</h5>
+          <h5 class="mdl-layout__header-row login_title">Kirjaudu</h5>
 
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="input-field inline">
