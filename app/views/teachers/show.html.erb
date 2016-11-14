@@ -1,4 +1,38 @@
-<h1>Teacher <%= @teacher.first_name %> <%= @teacher.last_name %>  </h1>
+	<div class="container">
+  	<br><br>
+    	<div class="section">
+      		<div class="row">
+        		<div class="col s6 center">
+          			<i><%= image_tag(@picture.url(:medium), :class => 'circle', :width => "250em") %></i>
+          			<div class="center">
+            			<i class="material-icons">thumb_up</i>30<i class="material-icons">thumb_down</i>3<i class="material-icons">attach_money</i>20€/h<i class="material-icons">place</i>Helsinki
+          			</div>
+          			<div>
+          				<a class="waves-effect waves-light btn">Ota yhteyttä</a>
+          			</div>
+        		</div>
+        		<div class="col s12 m6">
+          			<h2 class="center orange-text">Teacher <%= @teacher.first_name %> <%= @teacher.last_name %></h2>
+          			<div class="divider"></div>
+          			<div class="section">
+            			<p>Matematiikka</p>
+          			</div>
+          			<div class="divider"></div>
+          			<div class="section">
+            			<p>Fysiikka</p>
+          			</div>
+          			<div class="divider"></div>       
+          			<div class="section">
+            			<p>Stuff</p>         
+          			</div>
+        		</div>
+      		</div>
+    	</div>
+    	<br><br>
+    	<div class="section">
+    		
+    	</div>
+    </div>
 
 <% if user_signed_in? %>
 <%= form_for(@newcomment, :html => {class: "form-horizontal", role: "form"}) do |f| %>

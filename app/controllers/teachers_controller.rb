@@ -3,6 +3,7 @@ class TeachersController < ApplicationController
 		@teacher = User.find(params[:id])
 		@comments = Comment.where(target_id: params[:id]).reverse
 		@newcomment = Comment.new
+		@picture = @teacher.avatar
 	end
 
 	def index
