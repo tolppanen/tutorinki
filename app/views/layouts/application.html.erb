@@ -43,7 +43,7 @@
        <div class="input-field col s12">
          <%= form_tag(teachers_path, :method => "get", id: "search-form") do %>
           <%= text_field_tag :subject_query, params[:subject_query], placeholder: "Hae opetusta" %>
-          <%= submit_tag "Search" %>
+          <%= submit_tag "Hae" %>
          <% end %>
        </div>
      </div>

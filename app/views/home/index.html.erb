@@ -1,34 +1,22 @@
 
-<% if user_signed_in? %>
-<h4> Logged in as <%= current_user.first_name %> </h4>
+<% if user_signed_in? and current_user.teacher%>
 
-<% if current_user.teacher %>
-<h5> You are a teacher </h5>
+  <h5> You are a teacher </h5>
+
 <% else %>
-<header class="header-video-container-main">
-<video autoplay="" loop="" class="fillWidth">
-<source src="https://player.vimeo.com/external/143715816.hd.mp4?s=df3e317fdb1e510e5a0ba1ed9919d996&amp;profile_id=119" type="video/mp4">Your browser does not support the video tag. I suggest you upgrade your browser.
-</video>
-<div id="overlay"></div>
-<div class="index-search-input">
-  TESTITEKSTI
+
+  <div class="index-image-container">
+    <img src="http://tutorly.co/assets/img/main5a.jpg" alt="" class="index-image"/>
+    <div id="overlay">
+      <h3 id="index-header1"> Tutorinki </h3>
+      <h5 id="index-header2"> Löydä opetusta haluamastasi aiheesta helposti ja nopeasti! </h5>
          <%= form_tag(teachers_path, :method => "get", id: "search-form") do %>
-          <%= text_field_tag :subject_query, params[:subject_query], placeholder: "Hae opetusta" %>
+          <%= text_field_tag :subject_query, params[:subject_query], placeholder: "Hae opetusta"%>
          <% end %>
-       </div>
-</header>
-<% end %>
+    </div>
+  </div>
 
-<% end %>
 
-<% if !user_signed_in? %>
-
-<header class="header-video-container-main">
-<video autoplay="" loop="" class="fillWidth">
-<source src="https://player.vimeo.com/external/143715816.hd.mp4?s=df3e317fdb1e510e5a0ba1ed9919d996&amp;profile_id=119" type="video/mp4">Your browser does not support the video tag. I suggest you upgrade your browser.
-</video>
-<div id="overlay"></div>
-</header>
 
 
 <% end %>
