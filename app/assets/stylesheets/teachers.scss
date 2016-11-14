@@ -27,4 +27,9 @@
 
 .search-item{
 	color:black !important;
+	border: 1px solid rgba(110, 110, 110, 0.3);
+}
+
+.search-item:hover {
+	background-color: rgba(232, 118, 13, 0.8) !important;
 }

@@ -14,12 +14,16 @@
 
 <ul class="collection search-result-list">
   <% @results.each do |teacher|%>
-    <a href="#!"<li class="collection-item avatar search-item">
-      <i><%= image_tag(teacher.avatar.url(:thumb), :class => 'circle') %></i>
-      <span class="title"><%= teacher.first_name %> <%= teacher.last_name %></span>
-      <p><%= teacher.city %><br>
-         Hei olen <%= teacher.first_name %>!
-      </p>
-    </li></a>
-  <% end %>
-  </ul>
+  <%= link_to teacher_path(teacher.id) do %>
+    <li class="collection-item avatar search-item">
+    <i><%= image_tag(teacher.avatar.url(:thumb), :class => 'circle') %></i>
+    <span class="title"><%= teacher.first_name %> <%= teacher.last_name %></span>
+    <p><%= teacher.city %><br>
+      Hei olen <%= teacher.first_name %>!
+    </p>
+    </li>
+    <% end %>
+    <% end %>
+
+
+</ul>
