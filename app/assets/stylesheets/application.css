@@ -22,6 +22,10 @@
 }
 }
 
+#menubar {
+    height: 70px;
+    background-color: #ff8f00;
+}
 
 
 .userView {
@@ -34,9 +38,18 @@
 
 #titleblock {
   display: block;
-  top: -30px;
+  height: 70px;
+  top: -35px;
   position: relative;
   color: white;
+}
+
+#titleblock h3 {
+  font-size: 36px;
+}
+
+.userView {
+  height: 70px;
 }
 
 #titleblock-logged {
@@ -66,4 +79,3 @@
     position: absolute;
     img { width: 100% }
 }
-
