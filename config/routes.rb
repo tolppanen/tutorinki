@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   get 'contacts' => 'teachers#contacts'
   get 'requests' => 'friendships#pending'
   resources :friendships
+  get 'confirmation/:id' => 'friendships#confirm', :as => :confirm_friendship
 end

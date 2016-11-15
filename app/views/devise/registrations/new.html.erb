@@ -1,4 +1,4 @@
-<h4 id="signup-header">Kirjaudu</h4>
+<h4 id="signup-header">Rekisteröidy käyttäjäksi</h4>
 
 <div class="signup-view"><%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -33,7 +33,7 @@
 
   <div class="field signup-field">
     <%= f.check_box :teacher, :class => 'mdl-checkbox__input' %>
-    <%= f.label :teacher %>
+    <%= f.label "Olen opettaja" %>
   </div>
 
   <div class="actions">
@@ -41,5 +41,3 @@
   </div>
 <% end %>
 </div>
-
-

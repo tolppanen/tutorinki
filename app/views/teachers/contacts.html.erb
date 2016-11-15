@@ -1,9 +1,15 @@
-<!-- This page displays contacts that a user has -->
-
-<ul>
-  <% @user_contacts.each do |c| %>
-    <li>
-      <p><%= c.first_name %> <%= c.last_name %><% if c.teacher %> - Teacher <% end %></p>
+<ul class="collection search-result-list">
+  <% current_user.friends.each do |c|%>
+  <%= link_to teacher_path(c.id) do %>
+    <li class="collection-item avatar search-item">
+    <i><%= image_tag(c.avatar.url(:thumb), :class => 'circle') %></i>
+    <span class="title"><%= c.first_name %> <%= c.last_name %></span>
+    <p><%= c.city %><br>
+      Hei olen <%= c.first_name %>!
+    </p>
     </li>
-  <% end %>
+    <% end %>
+    <% end %>
+
+
 </ul>

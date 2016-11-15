@@ -23,7 +23,7 @@
 }
 
 #menubar {
-    height: 70px;
+    height: 90px;
     background-color: #ff8f00;
 }
 
@@ -38,7 +38,7 @@
 
 #titleblock {
   display: block;
-  height: 70px;
+  height: 90px;
   top: -35px;
   position: relative;
   color: white;
@@ -49,7 +49,7 @@
 }
 
 .userView {
-  height: 70px;
+  height: 90px;
 }
 
 #titleblock-logged {

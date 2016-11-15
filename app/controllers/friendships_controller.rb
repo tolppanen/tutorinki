@@ -18,4 +18,9 @@ def pending
   end
 end
 
+def confirm
+  current_user.accept_request(User.find(params[:id]))
+  redirect_to contacts_path
+end
+
 end
