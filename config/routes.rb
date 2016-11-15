@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   get 'teachers/:id' => 'teachers#show'
   get 'teachers' => 'teachers#index'
   get 'contacts' => 'teachers#contacts'
+  get 'requests' => 'friendships#pending'
   resources :friendships
 end
