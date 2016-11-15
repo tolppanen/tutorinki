@@ -6,25 +6,37 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-100.times do
-   User.create!(:email => Faker::Internet.email, :first_name => Faker::Name.first_name, :last_name => Faker::Name.last_name,
-   :password => Faker::Internet.password, :teacher => true)
-end
 
-Subject.create!(name:"Ohjelmointi", detail:"Scala")
-Subject.create!(name:"Ohjelmointi", detail:"Java")
-Subject.create!(name:"Ohjelmointi", detail:"Rails")
-Subject.create!(name:"Ohjelmointi", detail:"Clojure")
-Subject.create!(name:"Matematiikka", detail:"Ylä-aste")
-Subject.create!(name:"Matematiikka", detail:"Lukio")
-Subject.create!(name:"Fysiikka", detail:"Lukio")
-Subject.create!(name:"Oikeustiede", detail:"Pääsykoe")
+laura = User.create!(:email => "laura@lehtori.com", :first_name => "Laura", :last_name => "Lehtori", :password => "salasana", :teacher => true)
+teemu = User.create!(:email => "teemu@tuutori.com", :first_name => "Teemu", :last_name => "Tuutori", :password => "salasana", :teacher => true)
+aatu = User.create!(:email =>  "aatu@auttavainen.com", :first_name => "Aatu", :last_name => "Auttavainen", :password => "salasana", :teacher => true)
 
-User.all.each do |u|
-  u.skills << Skill.create!(:subject => Subject.all.sample, :description => Faker::StarWars.quote)
-  u.skills << Skill.create!(:subject => Subject.all.sample, :description => Faker::StarWars.quote)
-end
+hanna = User.create!(:email =>  "hanna@hakija.com", :first_name => "Hanna", :last_name => "Hakija", :password => "salasana", :teacher => false)
+onni = User.create!(:email =>  "onni@oppija.com", :first_name => "Onni", :last_name => "Oppija", :password => "salasana", :teacher => false)
+katariina = User.create!(:email =>  "katariina@kiinnostunut.com", :first_name => "Katariina", :last_name => "Kiinnostunut", :password => "salasana", :teacher => false)
 
 
-User.create!(:email => "jotain@joku.com", :first_name => "Netta", :last_name => "Nero",
-:password => "salasana", :teacher => false)
+
+
+laura.skills << Skill.create!(:subject => Subject.find_or_create_by!(name:"ohjelmointi", detail:"scala"), :description => Faker::StarWars.quote)
+laura.skills << Skill.create!(:subject => Subject.find_or_create_by!(name:"ohjelmointi", detail:"java"), :description => Faker::StarWars.quote)
+laura.skills << Skill.create!(:subject => Subject.find_or_create_by!(name:"ohjelmointi", detail:"ruby"), :description => Faker::StarWars.quote)
+laura.skills << Skill.create!(:subject => Subject.find_or_create_by!(name:"ohjelmointi", detail:"clojure"), :description => Faker::StarWars.quote)
+laura.skills << Skill.create!(:subject => Subject.find_or_create_by!(name:"matematiikka", detail:"lukio"), :description => Faker::StarWars.quote)
+
+teemu.skills << Skill.create!(:subject => Subject.find_or_create_by!(name:"matematiikka", detail:"ylä-aste"), :description => Faker::StarWars.quote)
+teemu.skills << Skill.create!(:subject => Subject.find_or_create_by!(name:"matematiikka", detail:"lukio"), :description => Faker::StarWars.quote)
+teemu.skills << Skill.create!(:subject => Subject.find_or_create_by!(name:"oikeustiede", detail:"pääsykoe"), :description => Faker::StarWars.quote)
+
+aatu.skills << Skill.create!(:subject => Subject.find_or_create_by!(name:"englanti", detail:"lukio"), :description => Faker::StarWars.quote)
+aatu.skills << Skill.create!(:subject => Subject.find_or_create_by!(name:"fysiikka", detail:"lukio"), :description => Faker::StarWars.quote)
+aatu.skills << Skill.create!(:subject => Subject.find_or_create_by!(name:"lääketiede", detail:"pääsykoe"), :description => Faker::StarWars.quote)
+
+hanna.friend_request(laura)
+laura.accept_request(hanna)
+
+onni.friend_request(teemu)
+teemu.accept_request(onni)
+
+katariina.friend_request(aatu)
+aatu.accept_request(katariina)

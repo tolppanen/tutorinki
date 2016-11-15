@@ -1,11 +1,15 @@
 class TeachersController < ApplicationController
 	def show
 		@teacher = User.find(params[:id])
-		@comments = Comment.where(target_id: params[:id]).reverse
-		@newcomment = Comment.new
-		@friendship = Friendship.new
-		@picture = @teacher.avatar
-		@subjects = @teacher.subjects.pluck(:name).uniq
+		if @teacher.teacher?
+			@comments = Comment.where(target_id: params[:id]).reverse
+			@newcomment = Comment.new
+			@friendship = Friendship.new
+			@picture = @teacher.avatar
+			@subjects = @teacher.subjects.pluck(:name).uniq
+		else
+			redirect_to root_path
+		end
 	end
 
 	def index
@@ -15,7 +19,7 @@ class TeachersController < ApplicationController
 		@results = User.where(teacher: true).all
 		if @query != nil
 		 if @query != ""
-			@query = params[:subject_query]
+			@query.downcase!
 			@subject = Subject.where(:name => @query).sample
 			if @subject == nil
 			 redirect_to root_path

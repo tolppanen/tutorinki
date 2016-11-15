@@ -30,11 +30,11 @@
 						<div class="center">
 							<div class="divider"></div>
 							<div class="section">
-	            				<h5><%= subject %></h5>
+	            				<h5><%= subject.capitalize %></h5>
 	            				<ul>
 		            				<% @teacher.subjects.where(name:subject).pluck(:detail).uniq.each do |s| %>
 			            				<li>
-			            					<%= s %>
+			            					<%= s.capitalize %>
 			            				</li>
 		            				<% end %>
 	            				</ul>
@@ -86,9 +86,8 @@
 						<% end %>
 					</ul>
 				<% end %>
-	        	</div>        		
+	        	</div>
         	</div>
   			</div>
     	</div>
     	</div>
-
