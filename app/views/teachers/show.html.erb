@@ -8,7 +8,13 @@
             			<i class="material-icons">thumb_up</i>30<i class="material-icons">thumb_down</i>3<i class="material-icons">attach_money</i>20€/h<i class="material-icons">place</i>Helsinki
           			</div>
           			<div>
-          				<a class="waves-effect waves-light btn">Ota yhteyttä</a>
+
+									<%= form_for @friendship do |f| %>
+									<%= f.label :first_name %>:
+									<%= f.hidden_field :user, :value => @teacher.id %><br />
+									<%= f.submit "Ota yhteyttä", :class => "waves-effect waves-light btn" %>
+									<% end %>
+
           			</div>
         		</div>
         		<div class="col s12 m6">
@@ -21,16 +27,16 @@
           			<div class="section">
             			<p>Fysiikka</p>
           			</div>
-          			<div class="divider"></div>       
+          			<div class="divider"></div>
           			<div class="section">
-            			<p>Stuff</p>         
+            			<p>Stuff</p>
           			</div>
         		</div>
       		</div>
     	</div>
     	<br><br>
     	<div class="section">
-    		
+
     	</div>
     </div>
 

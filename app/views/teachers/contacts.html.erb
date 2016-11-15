@@ -1,9 +1,9 @@
 <!-- This page displays contacts that a user has -->
 
 <ul>
-<% @user_contacts.each do |c| %>
-  <li>
-    <p><%= c.first_name %> <%= c.last_name %><% if c.teacher %> - Teacher <% end %></p>
-  </li>
-<% end %>
+  <% @user_contacts.each do |c| %>
+    <li>
+      <p><%= c.first_name %> <%= c.last_name %><% if c.teacher %> - Teacher <% end %></p>
+    </li>
+  <% end %>
 </ul>

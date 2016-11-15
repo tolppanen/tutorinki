@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   #devise_for :users
   devise_for :users, :controllers => { registrations: 'users/registrations' },
-  path: '', path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register', registrations: 'cmon_let_me_in' }
+  path: '', path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register', registrations: 'signup' }
   #devise_for :users, :controllers => { registrations: 'registrations' }
 	root to: "home#index"
   resources :comments
@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :teachers
   get 'teachers/:id' => 'teachers#show'
   get 'teachers' => 'teachers#index'
-
+  get 'contacts' => 'teachers#contacts'
+  resources :friendships
 end
