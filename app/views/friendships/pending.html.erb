@@ -1,0 +1,15 @@
+
+
+<ul class="collection search-result-list">
+  <% @pending.each do |p|%>
+  <%= link_to confirm_friendship_path(p.id) do %>
+    <li class="collection-item avatar search-item">
+    <i><%= image_tag(p.avatar.url(:thumb), :class => 'circle') %></i>
+    <span class="title"><%= p.first_name %> <%= p.last_name %></span>
+    <p><%= p.city %><br>
+      haluaa ottaa yhteyttä!
+    </p>
+    </li>
+    <% end %>
+    <% end %>
+</ul>

@@ -9,26 +9,24 @@ class TeachersController < ApplicationController
 	end
 
 	def index
-		#Find relevan teachers, the query should include subject and level presented as integers correspnding
+		#Find relevant teachers, the query should include subject and level presented as integers correspnding
 		#to specific values in the Skill-model
 		@query = params[:subject_query]
 		@results = User.where(teacher: true).all
 		if @query != nil
 		 if @query != ""
 			@query = params[:subject_query]
-			@subject = Subject.where(:name => @query).last
+			@subject = Subject.where(:name => @query).sample
+			if @subject == nil
+			 redirect_to root_path
+		 else
 			@results = @subject.users.where(teacher: true).all
 	 end
-	end
 end
 
 	def contacts
-		 contacts = []
-		 friendships = current_user.friendships
-		 friendships.each do |f|
-		 		contacts << User.find(f.friend_id)
-		 end
-		 @user_contacts = contacts
-	end
 
+	end
+end
+end
 end

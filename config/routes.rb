@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   get 'teachers/:id' => 'teachers#show'
   get 'teachers' => 'teachers#index'
   get 'contacts' => 'teachers#contacts'
+  get 'requests' => 'friendships#pending'
   resources :friendships
+  get 'confirmation/:id' => 'friendships#confirm', :as => :confirm_friendship
 end

@@ -24,3 +24,7 @@ User.all.each do |u|
   u.skills << Skill.create!(:subject => Subject.all.sample, :description => Faker::StarWars.quote)
   u.skills << Skill.create!(:subject => Subject.all.sample, :description => Faker::StarWars.quote)
 end
+
+
+User.create!(:email => "jotain@joku.com", :first_name => "Netta", :last_name => "Nero",
+:password => "salasana", :teacher => false)

@@ -28,6 +28,7 @@ textarea:focus, input:focus{
 	text-align: center;
 	position:relative;
 	padding-bottom: 30px;
+	padding-top: 30px;
 }
 
 .signup-accept {
@@ -42,6 +43,12 @@ textarea:focus, input:focus{
 }
 
 .add-avatar {
-   /*TBA*/
+   display: inline-flex;
+}
+
+.login-signup-links {
+	display:flex;
+	justify-content:center;
+	position:relative;
 }
 

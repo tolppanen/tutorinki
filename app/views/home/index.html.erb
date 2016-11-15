@@ -1,7 +1,9 @@
 
 <% if user_signed_in? and current_user.teacher%>
 
-  <h5> You are a teacher </h5>
+  <h4 id="signup-header"> Tervetuloa, <%= current_user.first_name %>! </h4>
+
+  <div id="teacher-view-main"></div>
 
 <% else %>
 
