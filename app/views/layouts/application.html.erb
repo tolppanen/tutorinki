@@ -62,12 +62,12 @@
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="input-field inline">
             <%= f.email_field :email, autofocus: true, :id => 'login_email', autocomplete: "off" %>
-            <%= f.label :email, :for => 'login_email' %>
+            <%= f.label "Sähköposti", :for => 'login_email' %>
           </div>
           <br>
           <div class="input-field inline">
             <%= f.password_field :password, :id => 'login_password', autocomplete: "off" %>
-            <%= f.label :password, :for => 'login_password' %>
+            <%= f.label "Salasana", :for => 'login_password' %>
           </div>
 
           <% if devise_mapping.rememberable? -%>
@@ -78,12 +78,17 @@
           <% end -%>
 
           <div class="actions">
-            <%= f.submit "Log in", :class => 'waves-effect waves-light btn' %>
+            <%= f.submit "Kirjaudu", :class => 'waves-effect waves-light btn' %>
           </div>
           <% end %>
 
         </div>
       </div>
+    </li>
+    <li>
+      <%= link_to(new_user_registration_path) do %>
+      <div class="collapsible-header"><i class="large material-icons">perm_identity</i>Liity</div>
+      <% end %>
     </li>
     <% end %>
     <li>
@@ -91,6 +96,7 @@
       <div class="collapsible-header"><i class="large material-icons">home</i>Koti</div>
       <% end %>
     </li>
+
 
     <% if user_signed_in? %>
     <li>
