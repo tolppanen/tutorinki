@@ -103,6 +103,13 @@
       <div class="collapsible-header"><i class="large material-icons">account_circle</i>Kontaktit</div>
       <% end %>
     </li>
+    <% if current_user.teacher? %>
+    <li>
+      <%= link_to(requests_path) do %>
+      <div class="collapsible-header"><i class="large material-icons">account_circle</i>Yhteydenottopyynnöt</div>
+      <% end %>
+    </li>
+    <% end %>
     <li>
       <%= link_to(destroy_user_session_path, :method => :delete) do %>
       <div class="collapsible-header"><i class="large material-icons">exit_to_app</i>Kirjaudu ulos</div>
