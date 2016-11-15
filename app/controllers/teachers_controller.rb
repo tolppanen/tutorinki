@@ -3,7 +3,9 @@ class TeachersController < ApplicationController
 		@teacher = User.find(params[:id])
 		@comments = Comment.where(target_id: params[:id]).reverse
 		@newcomment = Comment.new
+		@friendship = Friendship.new
 		@picture = @teacher.avatar
+		@subjects = @teacher.subjects.pluck(:name).uniq
 	end
 
 	def index

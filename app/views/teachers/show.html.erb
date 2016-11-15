@@ -1,125 +1,93 @@
 	<!--<div class="container">-->
-	<div class="profile-container">
-  	<br><br>
+	<div >
     	<div class="section">
       		<div class="row">
-        		<div class="col s6 center">
-
-
-					<div class="row">
-						<div class="col s12 m9">
+        		<div class="col s12 l6">
+        			<div class="row">
+						<div class="col s9 l9 m9 center">
 							<div class="card">
 								<div class="card-image">
-
-									<%= image_tag(@picture.url(:medium), :class => 'circle', :width => "250em") %>
-
+									<%= image_tag(@picture.url(:medium), :class => 'circle') %>
 								</div>
 								<div class="card-content">
             						<i class="material-icons">thumb_up</i>30<i class="material-icons">thumb_down</i>3<i class="material-icons">attach_money</i>20€/h<i class="material-icons">place</i>Helsinki
 								</div>
 								<div class="card-action">
-									<a href="#">Ota yhteyttä</a>
+									<a>
+										<%= form_for @friendship do |f| %>
+										<%= f.hidden_field :user, :value => @teacher.id %>
+										<%= f.submit "Ota yhteyttä", :type => "submit" %>
+										<% end %>
+									</a>
 								</div>
 							</div>
 						</div>
 					</div>
-
-          			<!--<i><%= image_tag(@picture.url(:medium), :class => 'circle', :width => "250em") %></i>
-          			<div class="center">
-            			<i class="material-icons">thumb_up</i>30<i class="material-icons">thumb_down</i>3<i class="material-icons">attach_money</i>20€/h<i class="material-icons">place</i>Helsinki
-          			</div>
-          			<div>
-          				<a class="waves-effect waves-light btn">Ota yhteyttä</a>
-          			</div>-->
         		</div>
-        		<div class="col s12 m6">
-          			<h2 class="center orange-text">Teacher <%= @teacher.first_name %> <%= @teacher.last_name %></h2>
-          			<div class="divider"></div>
-          			<div class="section">
-            			<p>Matematiikka</p>
-          			</div>
-          			<div class="divider"></div>
-          			<div class="section">
-            			<p>Fysiikka</p>
-          			</div>
-          			<div class="divider"></div>       
-          			<div class="section">
-            			<p>Stuff</p>         
-          			</div>
+        		<div class="col s12 l6">
+          			<h3 class="center orange-text">Teacher <%= @teacher.first_name %> <%= @teacher.last_name %></h2>
+					<% @subjects.each do |subject| %>
+						<div class="center">
+							<div class="divider"></div>
+							<div class="section">
+	            				<h5><%= subject %></h5>
+	            				<ul>
+		            				<% @teacher.subjects.where(name:subject).pluck(:detail).uniq.each do |s| %>
+			            				<li>
+			            					<%= s %>
+			            				</li>
+		            				<% end %>
+	            				</ul>
+	          				</div>
+	          			</div>
+					<% end %>
         		</div>
       		</div>
     	</div>
-    	<br><br>
     	<div class="section">
-
-<% if user_signed_in? %>
-<%= form_for(@newcomment, :html => {class: "form-horizontal", role: "form"}) do |f| %>
-    		
-
-    		<div class="row">
-    			<form class="col s12">
-	      			<div class="row">
-
-
-
-
-	        			<div class="input-field col s5">
-	          				<i class="material-icons prefix">mode_edit</i>
-	          				<!--<textarea id="icon_prefix2" class="materialize-textarea"></textarea>-->
-	          				<%= f.text_area :body, class: "materialize-textarea", id: "icon_prefix2" %>
-	          				<%= f.label :comment, for: "icon_prefix2"%>
-	          				<!--<label for="icon_prefix2">Kommentoi opettajaa</label>-->
-	        			</div>
-
-	      			</div>
-    			</form>
-
-				<%= f.hidden_field :target, :value => @teacher.id %>
-				<%= f.hidden_field :poster, :value => current_user.id %>
-				<div class="form-group comment-button">
-					<button class="btn waves-effect waves-light" type="submit" name="action">
-					<%= f.submit%>
-					<i class="material-icons right">send</i>
-					</button>
-				</div>
-
+      		<div class="row">
+        		<div class="col s12 l6">
+					<% if user_signed_in? %>
+					<%= form_for(@newcomment, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+		    			<div class="row">
+			    			<form class="col s12">
+				      			<div class="row">
+				        			<div class="input-field col s10">
+				          				<i class="material-icons prefix">mode_edit</i>
+				          				<%= f.text_area :body, class: "materialize-textarea", id: "icon_prefix2" %>
+				          				<%= f.label :comment, for: "icon_prefix2"%>
+				        			</div>
+				      			</div>
+			    			</form>
+							<%= f.hidden_field :target, :value => @teacher.id %>
+							<%= f.hidden_field :poster, :value => current_user.id %>
+							<div class="form-group comment-button">
+								<button class="btn waves-effect waves-light" type="submit" name="action">
+								<%= f.submit "Kommentoi"%>
+								<i class="material-icons right">send</i>
+								</button>
+							</div>
+		  				</div>
+		  			<% end %>
+		  			<% end %>
+        		</div>
+	        	<div class="col s12 l6">
+	        	<% if user_signed_in? %>
+	        		<h5 class="">Kommentit</h5>
+					<ul class="collection">
+						<% @comments.each do |comment| %>
+							<li class="collection-item avatar">
+								<!--<img src="images/yuna.jpg" alt="" class="circle">-->
+								<%= image_tag(comment.poster.avatar(:medium), :class => 'circle') %>
+								<span class="title"><%= comment.poster.first_name %></span>
+								<p><%= comment.body %></p>
+								<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+							</li>
+						<% end %>
+					</ul>
+				<% end %>
+	        	</div>        		
+        	</div>
   			</div>
-
-  			<% end %>
-  			<% end %>
-
-  		</div>
+    	</div>
     </div>
-
-<!--<% if user_signed_in? %>
-<%= form_for(@newcomment, :html => {class: "form-horizontal", role: "form"}) do |f| %>
-
-<div class="form-group">
-	  <div class="control-label col-sm-2">
-	    <%= f.label :comment %>
-	  </div>
-
-	  <div class="col-sm-8">
-	    <%= f.text_area :body, rows: 3, class: "form-control", placeholder: "Please enter a comment", autofocus: true %>
-	  </div>
-</div>
-<%= f.hidden_field :target, :value => @teacher.id %>
-<%= f.hidden_field :poster, :value => current_user.id %>
-<div class="form-group">
-  <div class="center col-sm-offset-1 col-sm-10">
-    <%= f.submit%>
-  </div>
-</div>
-
-<% end %>
-<% end %>-->
-
-<ul>
-  <% @comments.each do |comment| %>
-  <li>
-    <div>
-      <p><%= comment.poster.first_name %>: <%= comment.body %></p>
-    </div>
-  </li>
-  <% end %>
-</ul>

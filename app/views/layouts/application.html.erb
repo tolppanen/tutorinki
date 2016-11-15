@@ -36,20 +36,20 @@
       <% end %>
     </div></li>
 
-  <li>
-  <div class="row">
-   <div class="col s12">
-     <div class="row">
-       <div class="input-field col s12">
-         <%= form_tag(teachers_path, :method => "get", id: "search-form") do %>
-          <%= text_field_tag :subject_query, params[:subject_query], placeholder: "Hae opetusta" %>
-          <%= submit_tag "Hae", :class => 'waves-effect waves-light btn' %>
-         <% end %>
-       </div>
-     </div>
-   </div>
- </div>
-  </li>
+    <li>
+      <div class="row">
+        <div class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <%= form_tag(teachers_path, :method => "get", id: "search-form") do %>
+              <%= text_field_tag :subject_query, params[:subject_query], placeholder: "Hae opetusta" %>
+              <%= submit_tag "Hae", :class => 'waves-effect waves-light btn' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
 
     <% if !user_signed_in? %>
     <li>
@@ -107,7 +107,7 @@
   </ul>
   <div id="menubar">
     <div data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></div>
-   </div>
+  </div>
   <div id="app_content">
     <%= yield %>
   </div>
