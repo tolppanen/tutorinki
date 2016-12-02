@@ -1,3 +1,8 @@
+<% if current_user.teacher? %>
+  <h3>Opiskelijat</h3>
+<% else %>
+  <h3>Opettajat</h3>
+<% end %>
 <ul class="collection search-result-list">
   <% current_user.friends.each do |c|%>
   <%= link_to teacher_path(c.id) do %>
