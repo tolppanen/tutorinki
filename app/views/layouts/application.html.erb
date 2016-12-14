@@ -20,40 +20,39 @@
 </head>
 
 <body>
+<% if user_signed_in? %>
 
+  <ul id="slide-out" class="side-nav fixed collapsible" data-collapsible="accordion">
+    <li><div class="userView background_navigation">
+      <div class="background_navigation"></div>
+      <% if user_signed_in? %>
+      <%= image_tag(current_user.avatar.url(:thumb), :class => 'round-image-50') %>
+      <div id="titleblock-logged">
+        <h3><%= current_user.first_name %></h3>
+      </div>
+      <% else %>
+      <div id="titleblock">
+        <h3>Tutorinki</h3>
+      </div>
+      <% end %>
+    </div></li>
 
-    <% if !user_signed_in? %>
-<!-- 
-    <ul id="slide-out" class="side-nav fixed collapsible" data-collapsible="accordion">
-      <li><div class="userView background_navigation">
-        <div class="background_navigation"></div>
-        <% if user_signed_in? %>
-        <%= image_tag(current_user.avatar.url(:thumb), :class => 'round-image-50') %>
-        <div id="titleblock-logged">
-          <h3><%= current_user.first_name %></h3>
-        </div>
-        <% else %>
-        <div id="titleblock">
-          <h3>Tutorinki</h3>
-        </div>
-        <% end %>
-      </div></li>
-
-      <li>
-        <div class="row">
-          <div class="col s12">
-            <div class="row">
-              <div class="input-field col s12">
-                <%= form_tag(teachers_path, :method => "get", id: "search-form") do %>
-                <%= text_field_tag :subject_query, params[:subject_query], placeholder: "Hae opetusta" %>
-                <%= submit_tag "Hae", :class => 'waves-effect waves-light btn' %>
-                <% end %>
-              </div>
+    <li>
+      <div class="row">
+        <div class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <%= form_tag(teachers_path, :method => "get", id: "search-form") do %>
+              <%= text_field_tag :subject_query, params[:subject_query], placeholder: "Hae opetusta" %>
+              <%= submit_tag "Hae", :class => 'waves-effect waves-light btn' %>
+              <% end %>
             </div>
           </div>
         </div>
-      </li>
+      </div>
+    </li>
 
+    <% if !user_signed_in? %>
     <li>
       <div class="collapsible-header"><i class="large material-icons">perm_identity</i>Kirjaudu</div>
       <div class="collapsible-body">
@@ -124,11 +123,12 @@
       <% end %>
     </li>
     <% end %>
-  </ul> -->
-
-  <!-- <div id="menubar">
+  </ul>
+  <div id="menubar">
     <div data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></div>
-  </div> -->
+  </div>
+
+<% end %>
 
   <div id="app_content">
     <%= yield %>

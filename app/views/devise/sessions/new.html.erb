@@ -1,35 +1,34 @@
+<div id=login>
+
+  <div id="login_panel">
 
 
-<div id="login_panel">
 
-<h5 class="mdl-layout__header-row login_title" id="signup-header">Kirjaudu</h5>
-
-<div class="profile-edit-view"><%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field, mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <%= f.email_field :email, autofocus: true, :class => 'mdl-textfield__input', :id => 'login_email' %>
-    <%= f.label :email, :class => 'mdl-textfield__label', :for => 'login_email' %>
-  </div>
-  <br>
-  <div class="field, mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <%= f.password_field :password, :class => 'mdl-textfield__input', :id => 'login_password', autocomplete: "off" %>
-    <%= f.label :password, :class => 'mdl-textfield__label', :for => 'login_password' %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-          <%= f.check_box :remember_me, :class => 'mdl-checkbox__input' %>
-      <%= f.label :remember_me %>
+  <div class="profile-edit-view"><%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="">
+      <%= f.email_field :email, autofocus: false, :class => '', :id => 'login_email', :placeholder => 'Sähköposti' %>
     </div>
-  <% end -%>
+    <br>
+    <div class="">
+      <%= f.password_field :password, :class => '', :id => 'login_password', autocomplete: "off", :placeholder => 'Salasana' %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Kirjaudu", :class => 'waves-effect waves-light btn' %>
+    <% if devise_mapping.rememberable? -%>
+      <div class="remember_field">
+        <%= f.check_box :remember_me, :class => 'check_box' %>
+        <%= f.label :remember_me, 'Muista minut' %>
+      </div>
+    <% end -%>
+
+    <div class="actions">
+      <%= f.submit "Kirjaudu", :class => 'login_button confirm_button' %>
+    </div>
+  <% end %>
   </div>
-<% end %>
-</div>
-<div class="signup-view">
-<%= render "devise/shared/links" %>
-</div>
-</div>
+  <div class="signup-view">
+    <small>Ei vielä tunnuksia? <%= link_to('Liity', new_user_registration_path) %> ilmaiseksi.</small>
+  </div>
+  </div>
 
 
+</div>

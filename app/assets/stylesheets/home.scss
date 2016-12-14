@@ -51,14 +51,14 @@
   display: block;
   min-height: 700px;
   height: 20em;
-  background: asset-data-url("harald.jpg") no-repeat;
+  background: url("harald.jpg") no-repeat;
   background-size: cover;
   background-position: center;
 }
 
 #menu_actions {
   display: block;
-  position: fixed;
+  position: absolute;;
   margin: 0px;
   padding: 0px;
   right: 5em;
@@ -100,7 +100,7 @@
 }
 
 #index_buttons {
-  position: relative;
+  position: absolute;
 margin: auto;
 width: 345px;
 top: 50px;

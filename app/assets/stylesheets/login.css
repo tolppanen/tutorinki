@@ -1,54 +1,76 @@
+#login {
+	position: fixed;
+  top: 0;
+  left: 0;
+	background: url("harald.jpg") no-repeat;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+
 #login_panel {
-	padding: 10px;
+	display: block;
+	width: 260px;
+	height: 400px;
+	margin: auto;
+	margin-top: 240px;
+	background-color: rgba(62, 62, 62, 0.85);
+	padding: 60px;
 }
 
-textarea:focus, input:focus{
-    outline: none;
+#signup_panel {
+	display: block;
+	width: 260px;
+	height: 620px;
+	margin: auto;
+	margin-top: 180px;
+	background-color: rgba(62, 62, 62, 0.85);
+	padding: 60px;
 }
 
-.input-field label.active {
-	transform: translateY(-30px) !important;
+#login_panel input {
+	color: white;
+}
+
+.new_user {
+	color: white;
+}
+
+.register_actions {
+	margin-top: 20px;
+}
+
+.confirm_button {
+	font-size: 14px;
+	border: 1px solid white;
+	border-radius: 10px;
+	width: 100%;
+	margin: auto;
+	background-color: rgba(209, 21, 148, 0.53);
+}
+
+.remember_field {
+	margin-bottom: 15px;
+}
+
+.remember_field label {
+	padding-left: 30px;
+}
+
+.check_box {
+	margin: 10px;
+	position: relative;
+	margin-bottom: 10px;
+	background-color: red;
 }
 
 .signup-view {
-	display:flex;
-	justify-content:center;
-	align-items:center;
-	position:relative;
-	padding-bottom: 50px;
+	display: block;
+	width: 100%;
+	margin-top: 70px;
 }
 
-.signup-field {
-	width:500px;
-	padding:5px;
+.signup-view small {
+	font-size: 13px;
+	color: rgb(176, 174, 182);
 }
-
-#signup-header {
-	color:grey;
-	text-align: center;
-	position:relative;
-	padding-bottom: 30px;
-	padding-top: 30px;
-}
-
-.signup-accept {
-	padding-top:5px;
-}
-
-.profile-edit-view {
-	display:flex;
-	justify-content:center;
-	position:relative;
-	padding-bottom: 30px;
-}
-
-.add-avatar {
-   display: inline-flex;
-}
-
-.login-signup-links {
-	display:flex;
-	justify-content:center;
-	position:relative;
-}
-
