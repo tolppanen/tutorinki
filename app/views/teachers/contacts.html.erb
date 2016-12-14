@@ -1,20 +1,20 @@
 <% if current_user.teacher? %>
-  <h3>Opiskelijat</h3>
+<h3>Opiskelijat</h3>
 <% else %>
-  <h3>Opettajat</h3>
+<h3>Opettajat</h3>
 <% end %>
 <ul class="collection search-result-list">
   <% current_user.friends.each do |c|%>
-  <%= link_to teacher_path(c.id) do %>
-    <li class="collection-item avatar search-item">
+  <%= link_to chat_path(c.id) do %>
+  <li class="collection-item avatar search-item">
     <i><%= image_tag(c.avatar.url(:thumb), :class => 'circle') %></i>
     <span class="title"><%= c.first_name %> <%= c.last_name %></span>
     <p><%= c.city %><br>
       Hei olen <%= c.first_name %>!
     </p>
-    </li>
-    <% end %>
-    <% end %>
+  </li>
+  <% end %>
+  <% end %>
 
 
 </ul>

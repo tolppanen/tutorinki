@@ -19,7 +19,9 @@ def pending
 end
 
 def confirm
-  current_user.accept_request(User.find(params[:id]))
+  requestee = User.find(params[:id])
+  current_user.accept_request(requestee)
+  Chat.create!(student: requestee, teacher: current_user)
   redirect_to contacts_path
 end
 

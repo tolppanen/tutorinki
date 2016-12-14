@@ -2,46 +2,179 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.index-image-container {
-  display: inline-block;
-  position: relative;
-  background-repeat: no-repeat center center fixed;
+// .index-image-container {
+//   display: inline-block;
+//   position: relative;
+//   background-repeat: no-repeat center center fixed;
+//   background-size: cover;
+//   z-index:0;
+//   }
+//
+// #overlay {
+//   position: absolute;
+//   width: 100%;
+//   z-index:1;
+//   top:30%;
+//   left:30%;
+//   max-width: 50%;
+//   margin: auto;
+//   display:inline;
+//   color: white;
+// }
+//
+// #subject_query::-webkit-input-placeholder {
+//     color: grey;
+// }
+//
+// #index-header1 {
+//   color:white;
+//   width: 90%;
+// }
+//
+// #index-header2 {
+//   color:white;
+//   width:100%;
+// }
+//
+// .index-image {
+// max-width: 100%;
+//   max-height: 100%;
+// }
+//
+// #teacher-view-main {
+//   display: inline-block;
+//   position: relative;
+// }
+
+#index_container {
+  width: 100%;
+  display: block;
+  min-height: 700px;
+  height: 20em;
+  background: asset-data-url("harald.jpg") no-repeat;
   background-size: cover;
-  z-index:0;
+  background-position: center;
+}
+
+#menu_actions {
+  display: block;
+  position: fixed;
+  margin: 0px;
+  padding: 0px;
+  right: 5em;
+}
+
+#menu_actions li {
+  margin-left: 30px;
+  float: left;
+}
+
+#overlay{
+  position: relative;
+  width: 100%;
+  min-height: 700px;
+  height: 20em;
+  background-color: rgba(212, 83, 11, 0.75);
+}
+
+#benefits {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  font-family: 'Roboto';
+}
+
+
+#index_title {
+  margin: auto;
+  position: relative;;
+  width: 80%;
+  top: 198px;
+  padding: 10px;
+}
+
+#index_title h1 {
+  text-align: center;
+  color: ghostwhite;
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 140px;
+}
+
+#index_buttons {
+  position: relative;
+margin: auto;
+width: 345px;
+top: 50px;
+height: 150px;
+}
+
+.login_button:active {
+  border: 5px solid grey;
+}
+
+.login_button{
+  box-sizing: border-box;
+  height: 30px;
+  width: 160px;
+  display: table;
+  font-size: 20px;
+  font-weight: bold;
+  border: 5px solid white;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.55);
+  color: white;
+  background-color: rgba(0,0,0,0.2);
+  cursor: pointer;
+  float: left;
+  margin: 5px;
+}
+  span{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    // color: $button-color;
+    // box-shadow: 0 0 0 3px $button-color inset;
+    background: transparent;
   }
 
-#overlay {
-  position: absolute;
-  width: 100%;
-  z-index:1;
-  top:30%;
-  left:30%;
-  max-width: 50%;
+  .away{
+    display: table-cell;
+    vertical-align: middle;
+    text-align:center;
+  }
+
+  .over{
+    display: none;
+  }
+
+
+
+.searchBox-fakeInput {
+  background: #FFCC02;
+	border: none;
+	display: table;
+}
+.searchBox-inputWrapper_bordered {
+  border: 5px solid white;
+  width: 300px;
   margin: auto;
-  display:inline;
+}
+
+.login_link_button {
   color: white;
+  text-align: center;
+  width: 100px;
+  padding: 7px;
+  border: 3px solid white;
+  margin: auto;
 }
 
-#subject_query::-webkit-input-placeholder {
-    color: grey;
+.searchBox-input {
+color: white !important;
+font-size: 30px !important;
+margin: 0px;
 }
 
-#index-header1 {
-  color:white;
-  width: 90%;
-}
-
-#index-header2 {
-  color:white;
-  width:100%;
-}
-
-.index-image {
-max-width: 100%;
-  max-height: 100%;
-}
-
-#teacher-view-main {
-  display: inline-block;
-  position: relative;
+#search_input {
+  padding: 4px;
+  margin: 0 0 0 0;
+  border-bottom: none !important;
 }

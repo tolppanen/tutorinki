@@ -7,7 +7,7 @@
 
 <% else %>
 
-  <div class="index-image-container">
+  <!-- <div class="index-image-container">
     <img src="http://tutorly.co/assets/img/main5a.jpg" alt="" class="index-image"/>
     <div id="overlay">
       <h3 id="index-header1"> Tutorinki </h3>
@@ -16,9 +16,60 @@
           <%= text_field_tag :subject_query, params[:subject_query], placeholder: "Hae opetusta"%>
          <% end %>
     </div>
+  </div> -->
+
+  <div id="index_container">
+  <div id="overlay">
+  <div id="menu_actions">
+    <ul>
+        <%= link_to(new_user_registration_path) do %>
+          <li class="login_link_button">Liity</li>
+        <% end %>
+        <%= link_to(new_user_session_path) do %>
+          <li class="login_link_button">Kirjaudu</li>
+        <% end %>
+    </ul>
   </div>
-
-
-
+    <div id="index_title">
+      <h1>Tutorinki</h1><br />
+      <div class="searchBox-inputWrapper searchBox-inputWrapper_bordered">
+        <%= form_tag(teachers_path, :method => "get", id: "search-form") do %>
+         <%= text_field_tag :subject_query, params[:subject_query], placeholder: "Hae oppiainetta...", id: "search_input", class: "form-control searchBox-input js-searchBox-input"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  <section id="benefits">
+    <h4 class="center-align with-subtitle">Jotain dadaa siitä miten hieno palvelu tää on</h4>
+    <h5 class="subtitle center-align">Lähes yhtä hyvää markkinointishittiä</h5>
+    <div class="container">
+      <div class="row three-paragraphs center-align">
+        <div class="col m4 s12">
+          <i class="small material-icons">code</i>
+          <h5>Build Fast</h5>
+          <p>
+            Build complex automation, microservices, API connections fast and reduce integration times down from weeks into days.
+          </p>
+        </div>
+        <div class="col m4 s12">
+          <i class="small material-icons">swap_horiz</i>
+          <h5>Orchestrate</h5>
+          <p>
+            Break down silos between teams. Give business groups the flexibility and innovation cloud services can deliver without loosing control.
+          </p>
+        </div>
+        <div class="col m4 s12">
+          <i class="small material-icons">supervisor_account</i>
+          <h5>Foster Collaboration</h5>
+          <p>
+            Eliminate reliance on integration specialists. Empower end users to solve some of their own problems while IT focuses on business critical activities.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
 
 <% end %>

@@ -14,5 +14,9 @@ Rails.application.routes.draw do
   get 'contacts' => 'teachers#contacts'
   get 'requests' => 'friendships#pending'
   resources :friendships
+  resources :chats, only: [:new, :create, :show, :index]
   get 'confirmation/:id' => 'friendships#confirm', :as => :confirm_friendship
+
+  mount ActionCable.server => '/cable'
+
 end

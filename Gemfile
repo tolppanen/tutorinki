@@ -10,6 +10,7 @@ gem 'devise'
 
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
+gem 'redis', '~> 3.2'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
@@ -23,6 +24,8 @@ gem 'coffee-script-source', '1.8.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'faker'
+
+gem 'rake'
 
 gem 'geocoder'
 

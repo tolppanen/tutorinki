@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
   has_many :skills
   has_many :subjects, through: :skills
+  has_many :chats, dependent: :destroy
+  has_many :messages, dependent: :destroy
   has_many :posted_comments, :class_name => 'Comment', :foreign_key => 'poster_id'
   has_many :received_comments, :class_name => 'Comment', :foreign_key => 'target_id'
   has_friendship
