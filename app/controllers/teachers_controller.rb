@@ -33,11 +33,9 @@ class TeachersController < ApplicationController
 
 
 		def bio
-			puts "==================="
-			puts current_user.teacher?
 			if current_user.teacher?
-				@teacher = User.first
-				@subjects = @teacher.subjects.pluck(:name).uniq
+				@teacher = current_user
+				@skills = @teacher.skills
 			else
 				redirect_to root_path
 			end
@@ -45,12 +43,9 @@ class TeachersController < ApplicationController
 
 		def save
 			current_user.update!(bio:params[:user][:bio])
-			puts params
 			redirect_to :controller => 'teachers', :action => 'bio'
 		end
 
-		def skill_remove
-		end
 
 
 end

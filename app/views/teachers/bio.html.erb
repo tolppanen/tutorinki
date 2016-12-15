@@ -1,18 +1,12 @@
 
 
 <div>
-  <% @subjects.each do |subject| %>
+  <% @skills.each do |skill| %>
     <div class="center">
       <div class="divider"></div>
       <div class="section">
-              <h5><%= subject.capitalize %></h5>
-              <ul>
-                <% @teacher.subjects.where(name:subject).pluck(:detail).uniq.each do |s| %>
-                  <li>
-                    <%= s.capitalize %>
-                  </li>
-                <% end %>
-              </ul>
+              <h5><%= skill.subject.name %> <%= skill.subject.detail %></h5>
+              <%= link_to("Poista", skill_path(skill), :method => "delete") %>
             </div>
           </div>
   <% end %>
