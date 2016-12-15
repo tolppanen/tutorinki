@@ -10,12 +10,15 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :teachers
   get 'teachers/:id' => 'teachers#show'
+  get 'bio' => 'teachers#bio'
+  post 'bio' => 'teachers#save'
   get 'teachers' => 'teachers#index'
   get 'contacts' => 'teachers#contacts'
   get 'requests' => 'friendships#pending'
   resources :friendships
   resources :chats, only: [:new, :create, :show, :index]
   get 'confirmation/:id' => 'friendships#confirm', :as => :confirm_friendship
+
 
   mount ActionCable.server => '/cable'
 

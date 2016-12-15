@@ -1,4 +1,5 @@
 class TeachersController < ApplicationController
+
 	def show
 		@teacher = User.find(params[:id])
 		if @teacher.teacher?
@@ -18,19 +19,38 @@ class TeachersController < ApplicationController
 		@query = params[:subject_query]
 		@results = User.where(teacher: true).all
 		if @query != nil
-		 if @query != ""
-			@query.downcase!
-			@subject = Subject.where(:name => @query).sample
-			if @subject == nil
-			 redirect_to root_path
-		 else
-			@results = @subject.users.where(teacher: true).all
-	 end
-end
+			if @query != ""
+				@query.downcase!
+				@subject = Subject.where(:name => @query).sample
+				if @subject == nil
+					redirect_to root_path
+				else
+					@results = @subject.users.where(teacher: true).all
+				end
+			end
+		 end
+		end
 
-	def contacts
 
-	end
-end
-end
+		def bio
+			puts "==================="
+			puts current_user.teacher?
+			if current_user.teacher?
+				@teacher = User.first
+				@subjects = @teacher.subjects.pluck(:name).uniq
+			else
+				redirect_to root_path
+			end
+		end
+
+		def save
+			current_user.update!(bio:params[:user][:bio])
+			puts params
+			redirect_to :controller => 'teachers', :action => 'bio'
+		end
+
+		def skill_remove
+		end
+
+
 end

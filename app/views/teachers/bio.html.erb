@@ -1,0 +1,52 @@
+
+
+<div>
+  <% @subjects.each do |subject| %>
+    <div class="center">
+      <div class="divider"></div>
+      <div class="section">
+              <h5><%= subject.capitalize %></h5>
+              <ul>
+                <% @teacher.subjects.where(name:subject).pluck(:detail).uniq.each do |s| %>
+                  <li>
+                    <%= s.capitalize %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+  <% end %>
+</div>
+
+
+<div class="profile-edit-view"><%= form_for(:user, controller: "teacher", action: "save", method: "post" ) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="add-avatar">
+    <div class="field">
+      <%= f.label :avatar  %>
+      <%= f.file_field :avatar %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :bio%><br />
+    <%= f.text_field :bio, autocomplete: "off", :value => @teacher.bio %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :current_password %> <br />
+    <%= f.password_field :current_password, autocomplete: "off" %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit "Päivitä tiedot", :class => 'waves-effect waves-light btn'%>
+  </div>
+
+
+</div>
+
+
+<% end %>
