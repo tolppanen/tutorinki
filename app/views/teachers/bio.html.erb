@@ -1,4 +1,4 @@
-
+<%= react_component('Select') %>
 
 <div>
   <% @skills.each do |skill| %>
@@ -12,16 +12,15 @@
   <% end %>
 </div>
 
+<%= form_for @newskill do |s| %>
+  <%= s.text_field :subject, placeholder: "Aine" %>
+  <%= s.text_field :description, placeholder: "Taso" %>
+  <%= s.submit "Lisää", :type => "submit" %>
+<% end %>
 
-<div class="profile-edit-view"><%= form_for(:user, controller: "teacher", action: "save", method: "post" ) do |f| %>
+<div class="profile-edit-view">
+  <%= form_for(:user, controller: "teacher", action: "save", method: "post" ) do |f| %>
   <%= devise_error_messages! %>
-
-  <div class="add-avatar">
-    <div class="field">
-      <%= f.label :avatar  %>
-      <%= f.file_field :avatar %>
-    </div>
-  </div>
 
   <div class="field">
     <%= f.label :bio%><br />
@@ -39,8 +38,5 @@
     <%= f.submit "Päivitä tiedot", :class => 'waves-effect waves-light btn'%>
   </div>
 
-
-</div>
-
-
 <% end %>
+</div>

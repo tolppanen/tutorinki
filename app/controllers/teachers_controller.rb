@@ -36,16 +36,17 @@ class TeachersController < ApplicationController
 			if current_user.teacher?
 				@teacher = current_user
 				@skills = @teacher.skills
+				@newskill = Skill.new
 			else
 				redirect_to root_path
 			end
 		end
 
 		def save
-			current_user.update!(bio:params[:user][:bio])
+			puts "==============="
+			puts params
+			current_user.update!(bio: params[:user][:bio])
 			redirect_to :controller => 'teachers', :action => 'bio'
 		end
-
-
 
 end

@@ -20,7 +20,7 @@
 </head>
 
 <body>
-<% if user_signed_in? %>
+  <% if user_signed_in? %>
 
   <ul id="slide-out" class="side-nav fixed collapsible" data-collapsible="accordion">
     <li><div class="userView background_navigation">
@@ -128,7 +128,7 @@
     <div data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></div>
   </div>
 
-<% end %>
+  <% end %>
 
   <div id="app_content">
     <%= yield %>

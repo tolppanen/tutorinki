@@ -6,7 +6,7 @@
 
   <div class="profile-edit-view"><%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="">
-      <%= f.email_field :email, autofocus: false, :class => '', :id => 'login_email', :placeholder => 'Sähköposti' %>
+      <%= f.email_field :email, autofocus: false, :class => 'email_field', :id => 'login_email', :placeholder => 'Sähköposti', :html => {:autocomplete => "off"} %>
     </div>
     <br>
     <div class="">
