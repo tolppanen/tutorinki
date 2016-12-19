@@ -10,20 +10,22 @@
 
 #login_panel {
 	display: block;
-	width: 260px;
-	height: 400px;
+	width: 400px;
+	height: 350px;
 	margin: auto;
-	margin-top: 240px;
+	margin-top: 5%;
+	margin-bottom: 5%;
 	background-color: rgba(62, 62, 62, 0.85);
 	padding: 60px;
 }
 
 #signup_panel {
 	display: block;
-	width: 260px;
-	height: 620px;
+	width: 400px;
+	height: 560px;
 	margin: auto;
-	margin-top: 180px;
+	margin-top: 2%;
+	margin-bottom: 2%;
 	background-color: rgba(62, 62, 62, 0.85);
 	padding: 60px;
 }
@@ -67,7 +69,7 @@
 .signup-view {
 	display: block;
 	width: 100%;
-	margin-top: 70px;
+	margin-top: 30px;
 }
 
 .signup-view small {

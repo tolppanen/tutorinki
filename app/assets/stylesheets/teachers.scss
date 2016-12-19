@@ -4,13 +4,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 */
 
+#search {
+    position: absolute;
+	top: 0;
+    left: 0;
+	background: url("harald.jpg");
+	min-width: 100%;
+}
+
 .search-result-list {
 	width: 600px;
     margin: auto !important;
     position:absolute;
+    opacity: 0.85;
 }
 
 .search-result-header {
+	padding-top: 20px;
 	margin-bottom: 30px;
 	color:grey;
 	text-align: center;
@@ -31,7 +41,7 @@
 }
 
 .search-item:hover {
-	background-color: rgba(232, 118, 13, 0.8) !important;
+	background-color: rgba(190, 15, 120, 0.53) !important;
 }
 
 div.comment-button {
