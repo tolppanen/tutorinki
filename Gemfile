@@ -56,7 +56,6 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-react-select'
 end
 
-gem 'browserify-rails'
 
 gem 'therubyracer'
 
