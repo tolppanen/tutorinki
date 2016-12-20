@@ -8,7 +8,6 @@
     position: absolute;
 	top: 0;
     left: 0;
-	background: url("harald.jpg");
 	min-width: 100%;
 }
 
@@ -42,6 +41,23 @@
 
 .search-item:hover {
 	background-color: rgba(190, 15, 120, 0.53) !important;
+}
+
+.profile-header {
+    padding: 3px;
+}
+
+.profile-card {
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
+#teacher-login-header {
+    display:flex;
+	justify-content:center;
+	align-items:center;
+	position:relative;
 }
 
 div.comment-button {
