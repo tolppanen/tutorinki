@@ -48,46 +48,42 @@
       };
     };
 
+
     function refreshPrefetch() {
 
-    		localStorage.clear()
+      localStorage.clear()
 
 
-        // instantiate the bloodhound suggestion engine
-        var countries = new Bloodhound({
-          datumTokenizer: function(countries) {
-              return Bloodhound.tokenizers.whitespace(countries.value);
-          },
-          queryTokenizer: Bloodhound.tokenizers.whitespace,
-          remote: {
-            url: "http://vocab.nic.in/rest.php/country/json",
-            filter: function(response) {
-              return response.countries;
-            }
+
+      var subjects = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        prefetch: "../subjects/api.json"
+      });
+
+
+      subjects.initialize();
+
+
+      $("#prefetch .typeahead").typeahead(null, {
+        name: 'subject',
+        display: function(item){ return item.name + "-" + item.detail },
+        source: subjects.ttAdapter(),
+        offset: true,
+        templates: {
+          suggestion: function(data) {
+            return '<p><strong>' + data.name + '</strong> - ' + data.detail + '</p>';
           }
-        });
+        },
+        hint: false,
+        limit: 10,
+        highlight: true
+      }
+    )
+  }
 
-        // initialize the bloodhound suggestion engine
-        countries.initialize();
-
-        // instantiate the typeahead UI
-        $('.typeahead').typeahead(
-          { hint: true,
-            highlight: true,
-            minLength: 1
-          },
-          {
-          name: 'countries',
-          displayKey: function(countries) {
-            return countries.country.country_name;
-          },
-          source: countries.ttAdapter()
-        });
-
-};
-
-    refreshPrefetch();
+  refreshPrefetch();
 
 
-  }); // end of document ready
+}); // end of document ready
 })(jQuery); // end of jQuery name space
