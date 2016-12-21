@@ -18,6 +18,7 @@ class SkillsController < ApplicationController
     redirect_to :back
   end
 
+
   def api
     @subjects = Subject.all
     render :json  => @subjects.to_json
