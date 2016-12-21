@@ -7,10 +7,20 @@ class SkillsController < ApplicationController
   end
 
   def create
-    puts params
-    subject = Subject.where(name: params[:skill][:subject].downcase, detail: params[:skill][:description].downcase).first
-    Skill.create!(user: current_user, subject: subject)
+    detail = params[:skill][:subject].downcase.partition('-').last
+    name = params[:skill][:subject].downcase.partition('-').first
+    puts "================="
+    puts name
+    subject = Subject.where(name: name, detail: detail).first
+    if Skill.where(:user_id => current_user.id, :subject => subject).blank?
+      Skill.create!(user: current_user, subject: subject)
+    end
     redirect_to :back
+  end
+
+  def api
+    @subjects = Subject.all
+    render :json  => @subjects.to_json
   end
 
 end

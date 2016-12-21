@@ -26,67 +26,60 @@
     $('.button-collapse').sideNav();
 
 
-    var substringMatcher = function(strs) {
-      return function findMatches(q, cb) {
-        var matches, substringRegex;
+    // var substringMatcher = function(strs) {
+    //   return function findMatches(q, cb) {
+    //     var matches, substringRegex;
+    //
+    //     // an array that will be populated with substring matches
+    //     matches = [];
+    //
+    //     // regex used to determine if a string contains the substring `q`
+    //     substrRegex = new RegExp(q, 'i');
+    //
+    //     // iterate through the pool of strings and for any string that
+    //     // contains the substring `q`, add it to the `matches` array
+    //     $.each(strs, function(i, str) {
+    //       if (substrRegex.test(str)) {
+    //         matches.push(str);
+    //       }
+    //     });
+    //
+    //     cb(matches);
+    //   };
+    // };
 
-        // an array that will be populated with substring matches
-        matches = [];
+  function refreshPrefetch() {
 
-        // regex used to determine if a string contains the substring `q`
-        substrRegex = new RegExp(q, 'i');
+  localStorage.clear()
 
-        // iterate through the pool of strings and for any string that
-        // contains the substring `q`, add it to the `matches` array
-        $.each(strs, function(i, str) {
-          if (substrRegex.test(str)) {
-            matches.push(str);
-          }
-        });
+  var subjects = new Bloodhound({
+    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    prefetch: "../subjects/api.json"
+  });
+  subjects.initialize();
+  console.log(subjects.ttAdapter());
 
-        cb(matches);
-      };
-    };
+  $("#prefetch .typeahead").typeahead(null, {
+    name: 'subject',
+    display: function(item){ return item.name + "-" + item.detail },
+    source: subjects.ttAdapter(),
+    offset: true,
+    templates: {
+      suggestion: function(data) {
+        return '<p><strong>' + data.name + '</strong> - ' + data.detail + '</p>';
+      }
+    },
+    hint: false,
+    limit: 10,
+    highlight: true
+  }
+).on('keyup', function($e, datum) {  // suggestion selected
+  console.log($('#prefetch .typeahead'));
+})
+}
 
-    function refreshPrefetch() {
-
-    		localStorage.clear()
-
-
-        // instantiate the bloodhound suggestion engine
-        var countries = new Bloodhound({
-          datumTokenizer: function(countries) {
-              return Bloodhound.tokenizers.whitespace(countries.value);
-          },
-          queryTokenizer: Bloodhound.tokenizers.whitespace,
-          remote: {
-            url: "http://vocab.nic.in/rest.php/country/json",
-            filter: function(response) {
-              return response.countries;
-            }
-          }
-        });
-
-        // initialize the bloodhound suggestion engine
-        countries.initialize();
-
-        // instantiate the typeahead UI
-        $('.typeahead').typeahead(
-          { hint: true,
-            highlight: true,
-            minLength: 1
-          },
-          {
-          name: 'countries',
-          displayKey: function(countries) {
-            return countries.country.country_name;
-          },
-          source: countries.ttAdapter()
-        });
-
-};
-
-    refreshPrefetch();
+refreshPrefetch();
 
 
   }); // end of document ready
