@@ -4,6 +4,9 @@
       		<div class="row">
                 <div class="col s12 l6">
           			<h3 class="center orange-text profile-header"><%= @teacher.first_name %> <%= @teacher.last_name %></h2>
+          			<div class="center location">
+          				<i class="material-icons orange-text">place</i>Helsinki
+          			</div>
 					<% @subjects.each do |subject| %>
 						<div class="center">
 							<div class="divider"></div>
@@ -30,20 +33,20 @@
 								</div>
 								<div class="card-stacked">
 								  <div class="card-content">
-            						<i class="material-icons">thumb_up</i>30<i class="material-icons">thumb_down</i>3<i class="material-icons">attach_money</i>20€/h<i class="material-icons">place</i>Helsinki
+            						<i class="material-icons">thumb_up</i>30<i class="material-icons">thumb_down</i>3<i class="material-icons">attach_money</i>20€/h
 								  </div>
 								  <div class="card-action">
 									<a>
 										<%= form_for @friendship do |f| %>
 										<%= f.hidden_field :user, :value => @teacher.id %>
-										<%= f.submit "Ota yhteyttä", :type => "submit" %>
+										<%= f.submit "Ota yhteyttä", :type => "submit", :class => "btn waves-effect" %>
 										<% end %>
 									</a>
 								  </div>
 								</div>
 							</div>
 							<div class="description">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius volutpat felis, quis blandit nisl pretium facilisis. In hac habitasse platea dictumst. Proin eget condimentum metus, sit amet posuere lectus. Integer finibus aliquet ornare. Quisque consequat maximus elit quis molestie. Phasellus faucibus maximus massa ac mollis. Nulla gravida vehicula tortor, eu fermentum risus vulputate ut. Donec maximus diam non neque pharetra, eu finibus ligula dignissim. </div>
+							Olen <%= @teacher.first_name %>. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius volutpat felis, quis blandit nisl pretium facilisis. In hac habitasse platea dictumst. Proin eget condimentum metus, sit amet posuere lectus. Integer finibus aliquet ornare. Quisque consequat maximus elit quis molestie. Phasellus faucibus maximus massa ac mollis. Nulla gravida vehicula tortor, eu fermentum risus vulputate ut. Donec maximus diam non neque pharetra, eu finibus ligula dignissim. </div>
 						</div>
 					</div>
         		</div>

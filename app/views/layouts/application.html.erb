@@ -22,8 +22,8 @@
 <body>
   <% if user_signed_in? %>
   <ul id="slide-out" class="side-nav fixed collapsible background_navigation" data-collapsible="accordion">
+    
     <li><div class="userView background_navigation">
-      <div class="background_navigation"></div>
       <% if user_signed_in? %>
       <%= image_tag(current_user.avatar.url(:thumb), :class => 'round-image-50') %>
       <div id="titleblock-logged">
@@ -33,9 +33,12 @@
       <div id="titleblock">
         <h3>Tutorinki</h3>
       </div>
-      <% end %>
-    </div></li>
 
+      <% end %>
+
+     </div>
+    </div></li>
+   
     <li>
       <div class="row">
         <div class="col s12">
@@ -123,10 +126,8 @@
     </li>
     <% end %>
   </ul>
-  
 
   <% end %>
-
   <div id="app_content">
     <%= yield %>
   </div>

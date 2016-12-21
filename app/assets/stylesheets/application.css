@@ -28,6 +28,9 @@
     height: 90px;
 }
 
+#side-nav-overlay {
+ background-color: rgba(212, 83, 11, 0.75);
+}
 
 .userView {
   height: 95px;

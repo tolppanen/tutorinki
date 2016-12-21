@@ -51,6 +51,7 @@
 	display:flex;
 	justify-content:center;
 	align-items:center;
+	align-content: center;
 }
 
 .description {
@@ -62,6 +63,10 @@
 	justify-content:center;
 	align-items:center;
 	position:relative;
+}
+
+.location {
+   padding-bottom: 10px;
 }
 
 div.comment-button {
