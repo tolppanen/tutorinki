@@ -21,8 +21,7 @@
 
 <body>
   <% if user_signed_in? %>
-
-  <ul id="slide-out" class="side-nav fixed collapsible" data-collapsible="accordion">
+  <ul id="slide-out" class="side-nav fixed collapsible background_navigation" data-collapsible="accordion">
     <li><div class="userView background_navigation">
       <div class="background_navigation"></div>
       <% if user_signed_in? %>
@@ -124,9 +123,7 @@
     </li>
     <% end %>
   </ul>
-  <div id="menubar">
-    <div data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></div>
-  </div>
+  
 
   <% end %>
 

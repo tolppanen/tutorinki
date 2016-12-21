@@ -1,31 +1,9 @@
-	<div >
+	<div id="profile">
 
     	<div class="section">
       		<div class="row">
-        		<div class="col s12 l6">
-        			<div class="row">
-						<div class="col s9 l9 m9 center">
-							<div class="card">
-								<div class="card-image">
-									<%= image_tag(@picture.url(:medium), :class => 'circle') %>
-								</div>
-								<div class="card-content">
-            						<i class="material-icons">thumb_up</i>30<i class="material-icons">thumb_down</i>3<i class="material-icons">attach_money</i>20€/h<i class="material-icons">place</i>Helsinki
-								</div>
-								<div class="card-action">
-									<a>
-										<%= form_for @friendship do |f| %>
-										<%= f.hidden_field :user, :value => @teacher.id %>
-										<%= f.submit "Ota yhteyttä", :type => "submit" %>
-										<% end %>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-        		</div>
-        		<div class="col s12 l6">
-          			<h3 class="center orange-text">Teacher <%= @teacher.first_name %> <%= @teacher.last_name %></h2>
+                <div class="col s12 l6">
+          			<h3 class="center orange-text profile-header"><%= @teacher.first_name %> <%= @teacher.last_name %></h2>
 					<% @subjects.each do |subject| %>
 						<div class="center">
 							<div class="divider"></div>
@@ -41,6 +19,33 @@
 	          				</div>
 	          			</div>
 					<% end %>
+        		</div>
+
+        		<div class="col s12 l6 profile-card">
+        			<div class="row">
+						<div class="col s9 l9 m9 center">
+							<div class="card horizontal">
+								<div class="card-image">
+									<%= image_tag(@picture.url(:medium), :class => 'circle') %>
+								</div>
+								<div class="card-stacked">
+								  <div class="card-content">
+            						<i class="material-icons">thumb_up</i>30<i class="material-icons">thumb_down</i>3<i class="material-icons">attach_money</i>20€/h<i class="material-icons">place</i>Helsinki
+								  </div>
+								  <div class="card-action">
+									<a>
+										<%= form_for @friendship do |f| %>
+										<%= f.hidden_field :user, :value => @teacher.id %>
+										<%= f.submit "Ota yhteyttä", :type => "submit" %>
+										<% end %>
+									</a>
+								  </div>
+								</div>
+							</div>
+							<div class="description">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius volutpat felis, quis blandit nisl pretium facilisis. In hac habitasse platea dictumst. Proin eget condimentum metus, sit amet posuere lectus. Integer finibus aliquet ornare. Quisque consequat maximus elit quis molestie. Phasellus faucibus maximus massa ac mollis. Nulla gravida vehicula tortor, eu fermentum risus vulputate ut. Donec maximus diam non neque pharetra, eu finibus ligula dignissim. </div>
+						</div>
+					</div>
         		</div>
       		</div>
     	</div>

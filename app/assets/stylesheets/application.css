@@ -26,7 +26,6 @@
 
 #menubar {
     height: 90px;
-    background-color: #ff8f00;
 }
 
 
@@ -35,7 +34,7 @@
 }
 
 .background_navigation {
-  background-color: #ff8f00;
+  background: url("harald.jpg") no-repeat ;
 }
 
 #titleblock {
