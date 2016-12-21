@@ -3,7 +3,64 @@
 
   <h4 id="teacher-login-header"> Tervetuloa, <%= current_user.first_name %>! </h4>
 
-  <div id="teacher-view-main"></div>
+  <div id="teacher-view-main">
+    
+  <div class="container">
+      <div class="row three-paragraphs center-align">
+        <div class="col m4 s12">
+          <div class="card">
+             <div class="card-image waves-effect waves-block waves-light">
+             <img src="http://tutorly.co/assets/img/main5a.jpg" alt="" class="activator"/>
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Oma profiili<i class="material-icons right">more_vert</i></span>
+                <p><a href="#">Näytä</a></p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">Oma profiili<i class="material-icons right">close</i></span>
+                <p>Katsele ja muokkaa omaa julkista profiiliasi.</p>
+              </div>
+            </div>
+        </div>
+        <div class="col m4 s12">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img src="http://tutorly.co/assets/img/main5a.jpg" alt="" class="activator"/>
+                </div>
+                <div class="card-content">
+                  <span class="card-title activator grey-text text-darken-4">Viestit<i class="material-icons right">more_vert</i></span>
+                  <%= link_to(contacts_path) do %>
+                <p>Näytä</p>
+                <% end %>
+                  
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4">Viestit<i class="material-icons right">close</i></span>
+                  <p>Viestittele oppilaidesi kanssa helposti.</p>
+                </div>
+              </div>
+            </div>
+        <div class="col m4 s12">
+          <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img src="http://tutorly.co/assets/img/main5a.jpg" alt="" class="activator"/>
+                </div>
+                <div class="card-content">
+                  <span class="card-title activator grey-text text-darken-4">Jotain dadaa<i class="material-icons right">more_vert</i></span>
+                  <p><a href="#">ACTION!</a></p>
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4">Jotain dadaa<i class="material-icons right">close</i></span>
+                  <p>Dadaa!!</p>
+                </div>
+              </div>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+
+  </div>
 
 <% else %>
 

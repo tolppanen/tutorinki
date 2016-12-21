@@ -63,10 +63,29 @@
 	justify-content:center;
 	align-items:center;
 	position:relative;
+	padding-top: 5%;
+}
+
+#teacher-view-main {
+	padding-top: 10%;
+	 display:flex;
+	justify-content:center;
+	align-items:center;
+	position:relative;
 }
 
 .location {
    padding-bottom: 10px;
+}
+
+#subject {
+	padding-left: 20px;
+}
+
+.edit-button {
+	float:right;
+	padding-right:40px;
+	padding-bottom: 10px;
 }
 
 div.comment-button {

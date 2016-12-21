@@ -5,7 +5,7 @@
                 <div class="col s12 l6">
           			<h3 class="center orange-text profile-header"><%= @teacher.first_name %> <%= @teacher.last_name %></h2>
           			<div class="center location">
-          				<i class="material-icons orange-text">place</i>Helsinki
+          				<i class="material-icons orange-text">place</i><%= @teacher.bio%>
           			</div>
 					<% @subjects.each do |subject| %>
 						<div class="center">
@@ -16,6 +16,7 @@
 		            				<% @teacher.subjects.where(name:subject).pluck(:detail).uniq.each do |s| %>
 			            				<li>
 			            					<%= s.capitalize %>
+			            					<i class="material-icons" id="subject">thumb_up</i>
 			            				</li>
 		            				<% end %>
 	            				</ul>
@@ -23,7 +24,13 @@
 	          			</div>
 					<% end %>
         		</div>
-
+     <% if user_signed_in? and current_user.teacher%>
+     <div class="edit-button">
+        <%= link_to(teacher_url) do %>
+          <li class="btn waves-effect waves-light">Muokkaa profiiliasi</li>
+        <% end %>
+     </div>
+     <% end %>
         		<div class="col s12 l6 profile-card">
         			<div class="row">
 						<div class="col s9 l9 m9 center">
@@ -33,7 +40,7 @@
 								</div>
 								<div class="card-stacked">
 								  <div class="card-content">
-            						<i class="material-icons">thumb_up</i>30<i class="material-icons">thumb_down</i>3<i class="material-icons">attach_money</i>20€/h
+            						<i class="material-icons">attach_money</i>20€/h<i class="material-icons">grade</i>Verified
 								  </div>
 								  <div class="card-action">
 									<a>
@@ -46,7 +53,8 @@
 								</div>
 							</div>
 							<div class="description">
-							Olen <%= @teacher.first_name %>. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec varius volutpat felis, quis blandit nisl pretium facilisis. In hac habitasse platea dictumst. Proin eget condimentum metus, sit amet posuere lectus. Integer finibus aliquet ornare. Quisque consequat maximus elit quis molestie. Phasellus faucibus maximus massa ac mollis. Nulla gravida vehicula tortor, eu fermentum risus vulputate ut. Donec maximus diam non neque pharetra, eu finibus ligula dignissim. </div>
+							<%= @teacher.bio %>
+							 </div>
 						</div>
 					</div>
         		</div>
