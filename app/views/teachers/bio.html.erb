@@ -1,13 +1,11 @@
-<div id="prefetch">
-  <input class="typeahead" type="text" placeholder="Countries">
-</div>
+
 
 <div>
   <% @skills.each do |skill| %>
     <div class="center">
       <div class="divider"></div>
       <div class="section">
-              <h5><%= skill.subject.name %> <%= skill.subject.detail %></h5>
+              <h5><%= skill.subject.name.capitalize %> - <%= skill.subject.detail.capitalize %></h5>
               <%= link_to("Poista", skill_path(skill), :method => "delete") %>
             </div>
           </div>
@@ -15,8 +13,10 @@
 </div>
 
 <%= form_for @newskill do |s| %>
-  <%= s.text_field :subject, placeholder: "Aine" %>
-  <%= s.text_field :description, placeholder: "Taso" %>
+
+<div id="prefetch">
+  <%= s.text_field :subject, placeholder: "Aine", class: "typeahead", placeholder: "Aine" %>
+</div>
   <%= s.submit "Lisää", :type => "submit" %>
 <% end %>
 
@@ -29,12 +29,12 @@
     <%= f.text_field :bio, autocomplete: "off", :value => @teacher.bio %>
   </div>
 
-
   <div class="field">
-    <%= f.label :current_password %> <br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
+    <%= f.label :city %><br />
+    <div id="prefetch_city">
+      <%= f.text_field :city, autocomplete: "off", class: "typeahead_city", :value => @teacher.city %>
+    </div>
   </div>
-
 
   <div class="actions">
     <%= f.submit "Päivitä tiedot", :class => 'waves-effect waves-light btn'%>

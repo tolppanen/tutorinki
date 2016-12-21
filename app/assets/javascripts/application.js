@@ -26,61 +26,64 @@
     $('.button-collapse').sideNav();
 
 
-    // var substringMatcher = function(strs) {
-    //   return function findMatches(q, cb) {
-    //     var matches, substringRegex;
-    //
-    //     // an array that will be populated with substring matches
-    //     matches = [];
-    //
-    //     // regex used to determine if a string contains the substring `q`
-    //     substrRegex = new RegExp(q, 'i');
-    //
-    //     // iterate through the pool of strings and for any string that
-    //     // contains the substring `q`, add it to the `matches` array
-    //     $.each(strs, function(i, str) {
-    //       if (substrRegex.test(str)) {
-    //         matches.push(str);
-    //       }
-    //     });
-    //
-    //     cb(matches);
-    //   };
-    // };
+    var substringMatcher = function(strs) {
+      return function findMatches(q, cb) {
+        var matches, substringRegex;
 
-  function refreshPrefetch() {
+        // an array that will be populated with substring matches
+        matches = [];
 
-  localStorage.clear()
+        // regex used to determine if a string contains the substring `q`
+        substrRegex = new RegExp(q, 'i');
 
-  var subjects = new Bloodhound({
-    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
-    queryTokenizer: Bloodhound.tokenizers.whitespace,
-    prefetch: "../subjects/api.json"
-  });
-  subjects.initialize();
-  console.log(subjects.ttAdapter());
+        // iterate through the pool of strings and for any string that
+        // contains the substring `q`, add it to the `matches` array
+        $.each(strs, function(i, str) {
+          if (substrRegex.test(str)) {
+            matches.push(str);
+          }
+        });
 
-  $("#prefetch .typeahead").typeahead(null, {
-    name: 'subject',
-    display: function(item){ return item.name + "-" + item.detail },
-    source: subjects.ttAdapter(),
-    offset: true,
-    templates: {
-      suggestion: function(data) {
-        return '<p><strong>' + data.name + '</strong> - ' + data.detail + '</p>';
+        cb(matches);
+      };
+    };
+
+
+    function refreshPrefetch() {
+
+      localStorage.clear()
+
+
+
+      var subjects = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        prefetch: "../subjects/api.json"
+      });
+
+
+      subjects.initialize();
+
+
+      $("#prefetch .typeahead").typeahead(null, {
+        name: 'subject',
+        display: function(item){ return item.name + "-" + item.detail },
+        source: subjects.ttAdapter(),
+        offset: true,
+        templates: {
+          suggestion: function(data) {
+            return '<p><strong>' + data.name + '</strong> - ' + data.detail + '</p>';
+          }
+        },
+        hint: false,
+        limit: 10,
+        highlight: true
       }
-    },
-    hint: false,
-    limit: 10,
-    highlight: true
+    )
   }
-).on('keyup', function($e, datum) {  // suggestion selected
-  console.log($('#prefetch .typeahead'));
-})
-}
 
-refreshPrefetch();
+  refreshPrefetch();
 
 
-  }); // end of document ready
+}); // end of document ready
 })(jQuery); // end of jQuery name space
