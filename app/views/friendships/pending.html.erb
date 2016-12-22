@@ -1,5 +1,10 @@
 
-<h3>Yhteydenottopyynnöt</h3>
+<% if current_user.teacher? %>
+  <div id="teacher-login-header">
+    <h3>Yhteydenottopyynnöt</h3>
+  </div>
+
+
 <ul class="collection search-result-list">
   <% @pending.each do |p|%>
   <%= link_to confirm_friendship_path(p.id) do %>
@@ -13,3 +18,5 @@
     <% end %>
     <% end %>
 </ul>
+
+<% end %>

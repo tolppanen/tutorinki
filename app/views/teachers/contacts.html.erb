@@ -1,8 +1,17 @@
 <% if current_user.teacher? %>
-<h3>Opiskelijat</h3>
+
+  <div id="teacher-login-header">
+    <h3>Opiskelijat</h3>
+  </div>
+
 <% else %>
-<h3>Opettajat</h3>
+
+  <div id="teacher-login-header">
+    <h3>Opettajat</h3>
+  </div>
+
 <% end %>
+
 <ul class="collection search-result-list">
   <% current_user.friends.each do |c|%>
   <%= link_to chat_path(c.id) do %>
