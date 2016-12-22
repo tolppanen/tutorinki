@@ -9,17 +9,17 @@
         <%= devise_error_messages! %>
 
         <div class="field">
-          <%= f.label :first_name %><br />
+          <%= f.label :etunimi %><br />
           <%= f.text_field :first_name, autofocus: true %>
         </div>
 
           <div class="field">
-          <%= f.label :last_name %><br />
+          <%= f.label :sukunimi %><br />
           <%= f.text_field :last_name, autofocus: true %>
         </div>
 
         <div class="field">
-          <%= f.label :email %><br />
+          <%= f.label :sähköposti %><br />
           <%= f.email_field :email, autofocus: true %>
         </div>
 
@@ -28,17 +28,17 @@
         <% end %>
 
         <div class="field">
-          <%= f.label :password %> <i>(Jätä tyhjäksi jos et halua vaihtaa)</i><br />
+          <%= f.label :salasana %> <i>(Jätä tyhjäksi jos et halua vaihtaa)</i><br />
           <%= f.password_field :password, autocomplete: "off" %>
         </div>
 
         <div class="field">
-          <%= f.label :password_confirmation %><br />
+          <%= f.label :vahvista_salasana %><br />
           <%= f.password_field :password_confirmation, autocomplete: "off" %>
         </div>
 
         <div class="field">
-          <%= f.label :current_password %> <i>(Vahvista muutokset salasanalla)</i><br />
+          <%= f.label :nykyinen_salasana %> <i>(Vahvista muutokset salasanalla)</i><br />
           <%= f.password_field :current_password, autocomplete: "off" %>
         </div>
       </div>
@@ -55,27 +55,17 @@
   </div>
 
   <div class="actions center">
-    <%= f.submit "Update", :class => 'waves-effect waves-light btn'%>
+    <%= f.submit "Päivitä", :class => 'waves-effect waves-light btn'%>
   </div>
 
- <div class="edit-bottom center">
-  <h5 id="signup-header">Cancel my account</h5>
-
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Oletko varma?" }, method: :delete %></p>
+  <div class="edit-bottom center">
+    <h5 id="signup-header">Poista tilini</h5>
+    <p>Tyytymätön? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Oletko varma?" }, method: :delete %></p>
+  </div>
 </div>
-
-</div>
-
-
 <% end %>
 
-
-
-
-
-
-
-<%= link_to "Back", :back %>
+<%= link_to "Takaisin", :back %>
 
     </div>
  </div>
