@@ -23,7 +23,7 @@ class TeachersController < ApplicationController
 		if @query != nil
 			if @query != ""
 				@query.downcase!
-				@subject = Subject.where(:name => @query).sample
+				@subject = Subject.where("name LIKE :search", search: "%#{@query}%").sample
 				if @subject == nil
 					redirect_to root_path
 				else
