@@ -8,6 +8,7 @@ class TeachersController < ApplicationController
 			@newlike = Like.new
 			@friendship = Friendship.new
 			@picture = @teacher.avatar
+			@allsubjects = @teacher.subjects
 			@subjects = @teacher.subjects.pluck(:name).uniq
 		else
 			redirect_to root_path

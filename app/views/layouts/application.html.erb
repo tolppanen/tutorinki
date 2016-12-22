@@ -22,7 +22,7 @@
 <body>
   <% if user_signed_in? %>
   <ul id="slide-out" class="side-nav fixed collapsible background_navigation" data-collapsible="accordion">
-    
+
     <li><div class="userView background_navigation">
       <% if user_signed_in? %>
       <%= image_tag(current_user.avatar.url(:thumb), :class => 'round-image-50') %>
@@ -38,14 +38,16 @@
 
      </div>
     </div></li>
-   
+
     <li>
       <div class="row">
         <div class="col s12">
           <div class="row">
             <div class="input-field col s12">
               <%= form_tag(teachers_path, :method => "get", id: "search-form") do %>
-              <%= text_field_tag :subject_query, params[:subject_query], placeholder: "Hae opetusta" %>
+              <div id="prefetch_search">
+              <%= text_field_tag :subject_query, params[:subject_query], class: "typeahead", placeholder: "Hae opetusta" %>
+            </div>
               <%= submit_tag "Hae", :class => 'waves-effect waves-light btn' %>
               <% end %>
             </div>

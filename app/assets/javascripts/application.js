@@ -80,6 +80,24 @@
         highlight: true
       }
     )
+
+    $("#prefetch_search .typeahead").typeahead(null, {
+      name: 'subject',
+      display: function(item){ return item.name },
+      source: subjects.ttAdapter(),
+      offset: true,
+      templates: {
+        suggestion: function(data) {
+          return '<p><strong>' + data.name + '</strong></p>';
+        }
+      },
+      hint: false,
+      limit: 3,
+      highlight: true
+    }
+  )
+
+
   }
 
   refreshPrefetch();
