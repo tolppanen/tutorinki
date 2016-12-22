@@ -24,12 +24,12 @@
 	          			</div>
 					<% end %>
         		</div>
-     <% if user_signed_in? and current_user.teacher%>
-     <div class="edit-button">
-        <%= link_to(teacher_url) do %>
-          <li class="btn waves-effect waves-light">Muokkaa profiiliasi</li>
-        <% end %>
-     </div>
+				     <% if user_signed_in? and current_user.teacher%>
+				     <div class="edit-button">
+		      		 <%= link_to(teacher_url) do %>
+		          	 <li class="btn waves-effect waves-light">Muokkaa profiiliasi</li>
+		       		 <% end %>
+            </div>
      <% end %>
         		<div class="col s12 l6 profile-card">
         			<div class="row">

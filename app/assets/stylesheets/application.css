@@ -37,7 +37,7 @@
 }
 
 .background_navigation {
-  background: url("harald.jpg") no-repeat ;
+  background: url("harald light smaller.jpg") no-repeat ;
 }
 
 #titleblock {
@@ -59,7 +59,7 @@
 #titleblock-logged {
   display: flex;
   position: absolute;
-  color: white;
+  color: rgb(79, 78, 78);
   padding-left: 100px;
   top: 5px;
 }
