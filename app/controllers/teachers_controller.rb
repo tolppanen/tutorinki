@@ -19,13 +19,18 @@ class TeachersController < ApplicationController
 		#Find relevant teachers, the query should include subject and level presented as integers correspnding
 		#to specific values in the Skill-model
 		@query = params[:subject_query]
+		@detail = params[:detail_query]
 		@results = User.where(teacher: true).all
 		if @query != nil
 			if @query != ""
 				@query.downcase!
-				@subject = Subject.where("name LIKE :search", search: "%#{@query}%").sample
+				if @detail != nil
+					@subject = Subject.where("name LIKE :search", search: "%#{@query}%").where(detail: @detail).first
+				else
+						@subject = Subject.where("name LIKE :search", search: "%#{@query}%").first
+				end
 				if @subject == nil
-					redirect_to root_path
+					@results = User.where(teacher: true).all
 				else
 					@results = @subject.users.where(teacher: true).all
 				end
