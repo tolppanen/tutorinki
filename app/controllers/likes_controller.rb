@@ -1,10 +1,10 @@
 class LikesController < ApplicationController
   def create
-    skillsubject = params[:like][:subject]
-    skilldeatail = params[:like][:detail]
-    user = params[:like][:user]
-    skill = user.skills.where(subject: skillsubject)
-    skill.likes << Like.create!(user: current_user)
+  	puts params
+    skillsubject = Subject.where(name: params[:like][:subject], detail: params[:like][:detail])
+    user = User.find(params[:like][:user].to_i)
+    skill = user.skills.where(subject: skillsubject).first
+    Like.create!(user: current_user, skill: skill)
     redirect_to :back
   end
 end

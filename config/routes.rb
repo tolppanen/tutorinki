@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :chats, only: [:new, :create, :show, :index]
   get 'confirmation/:id' => 'friendships#confirm', :as => :confirm_friendship
   resources :skills, only: [:new, :create, :show, :destroy]
+  resources :likes
 
   mount ActionCable.server => '/cable'
 
