@@ -156,10 +156,17 @@ input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([rea
 input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]).edit-text-field,
 textarea.materialize-textarea:focus:not([readonly]).edit-text-field {
     border-bottom: none !important;
-    box-shadow: none !important;
+    /*box-shadow: none !important;*/
     border: solid !important;
 	border-width: 1px !important;
 	border-color: lightgrey !important;
+	/*border: none !important;
+	outline: orange solid 2px !important;*/
+	box-shadow: 0.6px 0.6px rgba(189, 189, 189, 0.73) inset !important;
+}
+
+.update-button {
+	background-color: orange !important;
 }
 
 div.profile-container {
