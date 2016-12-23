@@ -1,48 +1,75 @@
-<div id="teacher-login-header"><h4 id="signup-header">Muokkaa omia tietojasi</h4></div>
+<!--<div id="teacher-login-header"><h4 id="signup-header">Muokkaa omia tietojasi</h4></div>-->
+
+<h4 class="edit-header">Muokkaa omia tietojasi</h4>
 
 <div class="profile-edit-view" id="">
 
  <div class="section">
     <div class="row">
       <div class="col s12 l6">
+
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= devise_error_messages! %>
 
-        <div class="field">
-          <%= f.label :etunimi %><br />
-          <%= f.text_field :first_name, autofocus: true %>
+        <div class="row">
+          <div class="col l4 m4 s12">
+            <%= f.label :etunimi, :class => 'edit-label' %>
+          </div>
+          <div class="col l8 m8 s12">
+            <%= f.text_field :first_name, autofocus: true, :class => 'edit-text-field' %>
+          </div>
         </div>
 
-          <div class="field">
-          <%= f.label :sukunimi %><br />
-          <%= f.text_field :last_name, autofocus: true %>
+        <div class="row">
+          <div class="col l4 m4 s12">
+            <%= f.label :sukunimi, :class => 'edit-label' %>
+          </div>
+          <div class="col l8 m8 s12">
+            <%= f.text_field :last_name, autofocus: true, :class => 'edit-text-field' %>
+          </div>
         </div>
 
-        <div class="field">
-          <%= f.label :sähköposti %><br />
-          <%= f.email_field :email, autofocus: true %>
+        <div class="row">
+          <div class="col l4 m4 s12">
+            <%= f.label :sähköposti, :class => 'edit-label' %>
+          </div>
+          <div class="col l8 m8 s12">
+            <%= f.text_field :email, autofocus: true, :class => 'edit-text-field' %>
+          </div>
         </div>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <div>Odotetaan vastausta: <%= resource.unconfirmed_email %></div>
         <% end %>
 
-        <div class="field">
-          <%= f.label :salasana %> <i>(Jätä tyhjäksi jos et halua vaihtaa)</i><br />
-          <%= f.password_field :password, autocomplete: "off" %>
+        <div class="row">
+          <div class="col l4 m4 s12">
+            <%= f.label :salasana, :class => 'edit-label' %><i>(Jätä tyhjäksi jos et halua vaihtaa)</i>
+          </div>
+          <div class="col l8 m8 s12">
+            <%= f.text_field :password, autocomplete: "off", :class => 'edit-text-field' %>
+          </div>
         </div>
 
-        <div class="field">
-          <%= f.label :vahvista_salasana %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        <div class="row">
+          <div class="col l4 m4 s12">
+            <%= f.label :vahvista_salasana, :class => 'edit-label' %>
+          </div>
+          <div class="col l8 m8 s12">
+            <%= f.text_field :password_confirmation, autocomplete: "off", :class => 'edit-text-field' %>
+          </div>
         </div>
 
-        <div class="field">
-          <%= f.label :nykyinen_salasana %> <i>(Vahvista muutokset salasanalla)</i><br />
-          <%= f.password_field :current_password, autocomplete: "off" %>
+        <div class="row">
+          <div class="col l4 m4 s12">
+            <%= f.label :nykyinen_salasana, :class => 'edit-label' %><i>(Vahvista muutokset salasanalla)</i>
+          </div>
+          <div class="col l8 m8 s12">
+            <%= f.text_field :current_password, autocomplete: "off", :class => 'edit-text-field' %>
+          </div>
         </div>
+
       </div>
-  
 
   <div class="col s12 l6">
       <div class="add-avatar center">

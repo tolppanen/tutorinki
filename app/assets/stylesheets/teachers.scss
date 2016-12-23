@@ -101,7 +101,7 @@ div.comment-button {
 }
 
 .add-avatar {
-	padding: 50px;
+	padding: 20px;
 	display: inline;
 	align-items: flex-end;
 	float:right;
@@ -109,6 +109,38 @@ div.comment-button {
 
 .edit-bottom {
 	padding:30px;
+}
+
+.edit-text-field {
+  border: solid !important;
+  border-width: 1px !important;
+  border-color: lightgrey !important;
+  padding-left: 3px !important;
+  float: left !important;
+}
+
+.edit-label {
+  font-size: 1em;
+  text-align: center !important;
+}
+
+.edit-header {
+	margin-top: 1em;
+	margin-left: 1em;
+}
+/*This overrides the materialize.css green color in active text-field*/
+input:not([type]):focus:not([readonly]).edit-text-field,
+input[type=text]:focus:not([readonly]).edit-text-field,
+input[type=password]:focus:not([readonly]).edit-text-field,
+input[type=email]:focus:not([readonly]).edit-text-field,
+input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]).edit-text-field,
+input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]).edit-text-field,
+textarea.materialize-textarea:focus:not([readonly]).edit-text-field {
+    border-bottom: none !important;
+    box-shadow: none !important;
+    border: solid !important;
+	border-width: 1px !important;
+	border-color: lightgrey !important;
 }
 
 div.profile-container {
