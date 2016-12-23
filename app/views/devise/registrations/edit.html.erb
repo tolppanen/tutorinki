@@ -13,7 +13,10 @@
 
         <div class="row">
           <div class="col l4 m4 s12">
-            <%= f.label :etunimi, :class => 'edit-label' %>
+            <div class="valign-wrapper edit-label-right">
+              <p class="edit-label valign">Etunimi</p>
+              <%= f.label :etunimi, :class => 'edit-label-invisible' %>
+            </div>
           </div>
           <div class="col l8 m8 s12">
             <%= f.text_field :first_name, autofocus: true, :class => 'edit-text-field' %>
@@ -22,16 +25,22 @@
 
         <div class="row">
           <div class="col l4 m4 s12">
-            <%= f.label :sukunimi, :class => 'edit-label' %>
+            <div class="valign-wrapper edit-label-right">
+              <p class="edit-label valign">Sukunimi</p>
+              <%= f.label :sukunimi, :class => 'edit-label-invisible' %>
+            </div>
           </div>
           <div class="col l8 m8 s12">
             <%= f.text_field :last_name, autofocus: true, :class => 'edit-text-field' %>
           </div>
         </div>
 
-        <div class="row">
+        <div class="row ">
           <div class="col l4 m4 s12">
-            <%= f.label :sähköposti, :class => 'edit-label' %>
+            <div class="valign-wrapper edit-label-right">
+              <p class="edit-label valign">Sähköposti</p>
+              <%= f.label :sähköposti, :class => 'edit-label-invisible' %>
+            </div>
           </div>
           <div class="col l8 m8 s12">
             <%= f.text_field :email, autofocus: true, :class => 'edit-text-field' %>
@@ -44,16 +53,23 @@
 
         <div class="row">
           <div class="col l4 m4 s12">
-            <%= f.label :salasana, :class => 'edit-label' %><i>(Jätä tyhjäksi jos et halua vaihtaa)</i>
+            <div class="valign-wrapper edit-label-right">
+              <p class="edit-label valign">Salasana</p>
+              <%= f.label :salasana, :class => 'edit-label-invisible' %>
+            </div>
           </div>
           <div class="col l8 m8 s12">
             <%= f.text_field :password, autocomplete: "off", :class => 'edit-text-field' %>
+            <span class="edit-note">Jätä tyhjäksi, jos et halua vaihtaa</span>            
           </div>
         </div>
 
         <div class="row">
           <div class="col l4 m4 s12">
-            <%= f.label :vahvista_salasana, :class => 'edit-label' %>
+            <div class="valign-wrapper edit-label-right">
+              <p class="edit-label valign">Vahvista salasana</p>
+              <%= f.label :vahvista_salasana, :class => 'edit-label-invisible' %>
+            </div>
           </div>
           <div class="col l8 m8 s12">
             <%= f.text_field :password_confirmation, autocomplete: "off", :class => 'edit-text-field' %>
@@ -62,10 +78,14 @@
 
         <div class="row">
           <div class="col l4 m4 s12">
-            <%= f.label :nykyinen_salasana, :class => 'edit-label' %><i>(Vahvista muutokset salasanalla)</i>
+            <div class="valign-wrapper edit-label-right">
+              <p class="edit-label valign">Nykyinen salasana</p>
+              <%= f.label :nykyinen_salasana, :class => 'edit-label-invisible' %>
+            </div>
           </div>
           <div class="col l8 m8 s12">
             <%= f.text_field :current_password, autocomplete: "off", :class => 'edit-text-field' %>
+            <span class="edit-note">Vahvista muutokset salasanalla</span>
           </div>
         </div>
 
