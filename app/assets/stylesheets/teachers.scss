@@ -90,12 +90,6 @@
 	padding-left: 20px;
 }
 
-.edit-button {
-	float:right;
-	padding-right:40px;
-	padding-bottom: 10px;
-}
-
 div.comment-button {
 	padding-left: 3.5em;
 }
@@ -108,7 +102,7 @@ div.comment-button {
 }
 
 .edit-bottom {
-	padding:30px;
+	margin:30px 30px 0px 30px;
 }
 
 .edit-text-field {
@@ -120,14 +114,28 @@ div.comment-button {
   margin: 0px !important;
 }
 
+@media only screen and (max-width: 992px) {
+	.edit-text-field {
+		margin-right: 20px !important;
+	}
+
+}
+
 .edit-label {
   font-size: 1em;
   font-weight: bolder !important;
 }
 
-.edit-label-right {
+/*.edit-label-right {
 	float:right;
+}*/
+
+@media only screen and (min-width: 600px) {
+	.edit-label-right {
+		float:right;
+	}
 }
+
 
 .edit-label-invisible {
 	display: none !important;
@@ -147,7 +155,7 @@ span.edit-note {
 	font-size: 0.8em;
 }
 
-/*This overrides the materialize.css green color in active text-field*/
+/*This overrides the materialize.css green color in active text-field for the edit-page*/
 input:not([type]):focus:not([readonly]).edit-text-field,
 input[type=text]:focus:not([readonly]).edit-text-field,
 input[type=password]:focus:not([readonly]).edit-text-field,
@@ -165,8 +173,26 @@ textarea.materialize-textarea:focus:not([readonly]).edit-text-field {
 	box-shadow: 0.6px 0.6px rgba(189, 189, 189, 0.73) inset !important;
 }
 
-.update-button {
-	background-color: orange !important;
+.edit-button {
+    background-color: orange; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    /*display: inline-block;*/
+    font-size: 16px;
+    border-radius: 3px;
+    float: left;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.24), 0 1px 2px 0 rgba(0,0,0,0.19);
+}
+
+.edit-button:hover {
+    box-shadow: 0 4px 6px 0 rgba(0,0,0,0.24), 0 1px 5px 0 rgba(0,0,0,0.19);
+}
+
+.edit-back-link {
+	float:left;
 }
 
 div.profile-container {
