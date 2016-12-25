@@ -1,46 +1,51 @@
-<h4 class="edit-header">Muokkaa omia tietojasi</h4>
+
+<h4 class="edit-header" >Muokkaa omia tietojasi</h4>
+<div class="edit-divider">
+<div class="divider">
+</div>
+</div>
 
 <div class="profile-edit-view" id="">
 
   <div class="section">
     <div class="row">
-      <div class="col s12 l6">
+      <div class="col s12 l12 m12">
 
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= devise_error_messages! %>
 
         <div class="row">
-          <div class="col l4 m2 s12">
+          <div class="col l2 m2 s12">
             <div class="valign-wrapper edit-label-right">
               <p class="edit-label valign">Etunimi</p>
               <%= f.label :etunimi, :class => 'edit-label-invisible' %>
             </div>
           </div>
-          <div class="col l8 m10 s12">
+          <div class="col l9 m10 s12">
             <%= f.text_field :first_name, autofocus: true, :class => 'edit-text-field' %>
           </div>
         </div>
 
         <div class="row">
-          <div class="col l4 m2 s12">
+          <div class="col l2 m2 s12">
             <div class="valign-wrapper edit-label-right">
               <p class="edit-label valign">Sukunimi</p>
               <%= f.label :sukunimi, :class => 'edit-label-invisible' %>
             </div>
           </div>
-          <div class="col l8 m10 s12">
+          <div class="col l9 m10 s12">
             <%= f.text_field :last_name, autofocus: true, :class => 'edit-text-field' %>
           </div>
         </div>
 
-        <div class="row ">
-          <div class="col l4 m2 s12">
+        <div class="row">
+          <div class="col l2 m2 s12">
             <div class="valign-wrapper edit-label-right">
               <p class="edit-label valign">Sähköposti</p>
               <%= f.label :sähköposti, :class => 'edit-label-invisible' %>
             </div>
           </div>
-          <div class="col l8 m10 s12">
+          <div class="col l9 m10 s12">
             <%= f.text_field :email, autofocus: true, :class => 'edit-text-field' %>
           </div>
         </div>
@@ -50,56 +55,64 @@
         <% end %>
 
         <div class="row">
-          <div class="col l4 m2 s12">
+          <div class="col l2 m2 s12">
             <div class="valign-wrapper edit-label-right">
               <p class="edit-label valign">Salasana</p>
               <%= f.label :salasana, :class => 'edit-label-invisible' %>
             </div>
           </div>
-          <div class="col l8 m10 s12">
+          <div class="col l9 m10 s12">
             <%= f.text_field :password, autocomplete: "off", :class => 'edit-text-field' %>
             <span class="edit-note">Jätä tyhjäksi, jos et halua vaihtaa</span>            
           </div>
         </div>
 
         <div class="row">
-          <div class="col l4 m2 s12">
+          <div class="col l2 m2 s12">
             <div class="valign-wrapper edit-label-right">
               <p class="edit-label valign">Vahvista salasana</p>
               <%= f.label :vahvista_salasana, :class => 'edit-label-invisible' %>
             </div>
           </div>
-          <div class="col l8 m10 s12">
+          <div class="col l9 m10 s12">
             <%= f.text_field :password_confirmation, autocomplete: "off", :class => 'edit-text-field' %>
           </div>
         </div>
 
         <div class="row">
-          <div class="col l4 m2 s12">
+          <div class="col l2 m2 s12">
+            <div class="edit-label-right">
+              <p class="edit-label">Kuva</p>
+              <%= f.label :kuva, :class => 'edit-label-invisible' %>
+            </div>
+          </div>
+          <div class="col l9 m10 s12">
+            <%= f.file_field :avatar, :class => 'edit-image-field' %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col l2 m2 s12">
             <div class="valign-wrapper edit-label-right">
               <p class="edit-label valign">Nykyinen salasana</p>
               <%= f.label :nykyinen_salasana, :class => 'edit-label-invisible' %>
             </div>
           </div>
-          <div class="col l8 m10 s12">
+          <div class="col l9 m10 s12">
             <%= f.text_field :current_password, autocomplete: "off", :class => 'edit-text-field' %>
             <span class="edit-note">Vahvista muutokset salasanalla</span>
           </div>
         </div>
+
       </div>
 
-      <div class="col s12 l6">
-        <div class="add-avatar center">
-          <%= image_tag(current_user.avatar.url(:thumb), :class => 'round-image-70') %>
-          <div class="field">
-            <%= f.label :kuva  %>
-            <%= f.file_field :avatar %>
-          </div>
-        </div>
-      </div>
+      <!--<div class="col s12 l4">
+        <%= image_tag(current_user.avatar.url(:thumb), :class => 'round-image-70') %>
+      </div>-->
+
     </div>
     <div class="row">
-      <div class="col s12 l6">
+      <div class="col s12 l6 m6">
         <div class="col l4 m2 s12">
         </div>
         <div class="col l8 m10 s12">
@@ -107,11 +120,16 @@
         </div>
       </div>
     </div>
-    <div class="edit-bottom center">
-      <p>
-        <%= link_to "Takaisin", :back, :class => 'edit-back-link' %>
-        Haluatko poistaa tilisi? Poista napauttamalla <%= link_to "tästä", registration_path(resource_name), data: { confirm: "Oletko varma?" }, method: :delete %>
-      </p>
+
+    <div class="row edit-bottom">
+      <div class="col s12 l6">
+        <div class="col l4 m2 s12">
+          <%= link_to "Takaisin", :back, :class => 'edit-back-link' %>
+        </div>
+        <div class="col l8 m10 s12">
+        Haluatko poistaa tilisi? <%= link_to "Poista tili", registration_path(resource_name), data: { confirm: "Oletko varma?" }, method: :delete %>
+        </div>
+      </div>
     </div>
   </div>
   <% end %>

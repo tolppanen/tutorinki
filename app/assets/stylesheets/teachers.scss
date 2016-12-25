@@ -94,16 +94,12 @@ div.comment-button {
 	padding-left: 3.5em;
 }
 
-.add-avatar {
+/*.add-avatar {
 	padding: 20px;
 	display: inline;
 	align-items: flex-end;
 	float:right;
-}
-
-.edit-bottom {
-	margin:30px 30px 0px 30px;
-}
+}*/
 
 .edit-text-field {
   border: solid !important;
@@ -126,10 +122,6 @@ div.comment-button {
   font-weight: bolder !important;
 }
 
-/*.edit-label-right {
-	float:right;
-}*/
-
 @media only screen and (min-width: 600px) {
 	.edit-label-right {
 		float:right;
@@ -143,12 +135,23 @@ div.comment-button {
 
 .edit-header {
 	margin-top: 1em;
-	margin-bottom: 1.5em;
+	margin-bottom: 1em;
     display:flex;
 	justify-content:center;
 	align-items:center;
 	position:relative;
+}
 
+.edit-divider {
+	margin-right: 4%;
+	margin-left: 4%;
+	margin-bottom: 2%;
+}
+
+@media only screen and (max-width: 992px) {
+	.edit-divider {
+		margin: 20px;
+	}
 }
 
 span.edit-note {
@@ -193,6 +196,16 @@ textarea.materialize-textarea:focus:not([readonly]).edit-text-field {
 
 .edit-back-link {
 	float:left;
+}
+
+.edit-bottom {
+	margin-top: 40px !important;
+	margin-bottom: 0px !important;
+}
+@media only screen and (min-width: 600px) {
+	.edit-image-field {
+		margin-top: 0.9em;
+	}
 }
 
 div.profile-container {
