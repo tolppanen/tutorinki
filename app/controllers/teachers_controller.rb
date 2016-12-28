@@ -66,8 +66,8 @@ class TeachersController < ApplicationController
 
 	def save
 		puts "==============="
-		puts params
-		current_user.update!(bio: params[:user][:bio], city: params[:user][:city])
+		puts params[:user]
+		current_user.update!(bio: params[:user][:bio], city: params[:user][:city], price: params[:user][:price])
 		redirect_to :controller => 'teachers', :action => 'bio'
 	end
 

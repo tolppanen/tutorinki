@@ -20,7 +20,11 @@
 									<%= f.hidden_field :user, :value => @teacher.id %>
 									<%= f.hidden_field :subject, :value => subject %>
 									<%= f.hidden_field :detail, :value => s %>
-									<%= f.submit "Tykkää", :type => "submit", :class => "btn waves-effect" %>
+									<% if @teacher.skills.where(subject: @allsubjects.where(name: subject, detail: s)).first.likes.where(user_id: current_user.id).size != 0 %>
+									<%= f.submit "Tykätty", :type => "submit", :class => "btn waves-effect" %>
+									<% else %>
+									<%= f.submit 	"Tykkää", :type => "submit", :class => "btn waves-effect" %>
+									<% end %>
 									<% end %>
 									<h3>
 									<%=  @teacher.skills.where(subject: @allsubjects.where(name: subject, detail: s).first).first.likes.count %>
@@ -49,7 +53,7 @@
 								</div>
 								<div class="card-stacked">
 									<div class="card-content">
-										<i class="material-icons">attach_money</i>20€/h<i class="material-icons">grade</i>Verified
+										<i class="material-icons">attach_money</i><%= @teacher.price %>€/h<i class="material-icons">grade</i>Verified
 									</div>
 									<div class="card-action">
 										<a>
