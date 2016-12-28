@@ -13,4 +13,13 @@ class User < ApplicationRecord
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
 
+  def total_likes
+    sum = 0
+    self.skills.each do |s|
+      sum += s.likes.count
+    end
+    return sum
+  end
+
+
 end
