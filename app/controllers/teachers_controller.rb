@@ -47,7 +47,7 @@ class TeachersController < ApplicationController
 				end
 					#@results = @subject.users.where(teacher: true).all
 					puts @resultarray
-					@results = @resultarray
+					@results = @resultarray.sort_by{ |t| t.total_likes }.reverse
 				end
 			end
 		end
