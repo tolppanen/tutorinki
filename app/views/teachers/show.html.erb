@@ -76,7 +76,7 @@
 		<div class="section">
 			<div class="row">
 				<div class="col s12 l6">
-					<% if user_signed_in? %>
+					<% if user_signed_in? && current_user.friends.include?(@teacher) %>
 					<%= form_for(@newcomment, :html => {class: "form-horizontal", role: "form"}) do |f| %>
 					<div class="row">
 						<form class="col s12">
