@@ -102,12 +102,21 @@ div.comment-button {
 }*/
 
 .edit-text-field {
-  border: solid !important;
-  border-width: 1px !important;
-  border-color: lightgrey !important;
-  padding-left: 3px !important;
-  float: left !important;
-  margin: 0px !important;
+	border: solid !important;
+	border-width: 1px !important;
+	border-color: lightgrey !important;
+	padding-left: 3px !important;
+	float: left !important;
+	margin: 0px !important;
+}
+
+.edit-description-field {
+	border: solid !important;
+  	border-width: 1px !important;
+  	border-color: lightgrey !important;
+  	padding-left: 3px !important;
+  	float: left !important;
+  	margin: 0px !important;
 }
 
 @media only screen and (max-width: 992px) {
@@ -124,6 +133,17 @@ div.comment-button {
 
 @media only screen and (min-width: 600px) {
 	.edit-label-right {
+		float:right;
+	}
+}
+
+.edit-subject-label {
+  font-size: 1em;
+  font-weight: bolder !important;
+}
+
+@media only screen and (min-width: 600px) {
+	.edit-subject-label-right {
 		float:right;
 	}
 }
@@ -158,14 +178,21 @@ span.edit-note {
 	font-size: 0.8em;
 }
 
-/*This overrides the materialize.css green color in active text-field for the edit-page*/
+/*This overrides the materialize.css green color in active text-field for the edit- and bio-page.*/
 input:not([type]):focus:not([readonly]).edit-text-field,
 input[type=text]:focus:not([readonly]).edit-text-field,
 input[type=password]:focus:not([readonly]).edit-text-field,
 input[type=email]:focus:not([readonly]).edit-text-field,
 input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]).edit-text-field,
 input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]).edit-text-field,
-textarea.materialize-textarea:focus:not([readonly]).edit-text-field {
+textarea.materialize-textarea:focus:not([readonly]).edit-text-field,
+input:not([type]):focus:not([readonly]).edit-description-field,
+input[type=text]:focus:not([readonly]).edit-description-field,
+input[type=password]:focus:not([readonly]).edit-description-field,
+input[type=email]:focus:not([readonly]).edit-description-field,
+input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]).edit-descriptio-field,
+input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]).edit-descriptio-field,
+textarea.materialize-textarea:focus:not([readonly]).edit-descriptio-field {
     border-bottom: none !important;
     /*box-shadow: none !important;*/
     border: solid !important;
@@ -210,4 +237,8 @@ textarea.materialize-textarea:focus:not([readonly]).edit-text-field {
 
 div.profile-container {
 	padding-left: 5em;
+}
+
+span.twitter-typeahead {
+	width: 100% !important;
 }
