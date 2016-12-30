@@ -81,6 +81,22 @@
       }
     )
 
+    $("#prefetch_detail .typeahead").typeahead(null, {
+      name: 'subject',
+      display: function(item){ return item.detail },
+      source: subjects.ttAdapter(),
+      offset: true,
+      templates: {
+        suggestion: function(data) {
+          return '<p>' + data.detail + '</p>';
+        }
+      },
+      hint: false,
+      limit: 10,
+      highlight: true
+    }
+  )
+
     $("#prefetch_search .typeahead").typeahead(null, {
       name: 'subject',
       display: function(item){ return item.name },
@@ -96,6 +112,8 @@
       highlight: true
     }
   )
+
+
 
 
   }

@@ -22,35 +22,33 @@ class TeachersController < ApplicationController
 		@detail = params[:detail_query]
 		@resultarray = []
 		@subjects = []
+		@details = []
 		@results = User.where(teacher: true).all
-		if @query != nil
-			if @query != ""
-				@query.downcase!
-				if @detail != ""
-					@subject = Subject.where("name LIKE :search", search: "%#{@query}%").where("detail LIKE :search", search: "%#{@detail}%").first
-					@subject.users.where(teacher: true).all.each do |u|
+		if @query != nil && @query != ""
+			@query.downcase!
+			if @detail != nil && @detail != ""
+				@subjects = Subject.where("name LIKE :search", search: "%#{@query}%").where(detail: @detail)
+			else
+				@subjects = Subject.where("name LIKE :search", search: "%#{@query}%").all
+			end
+			@subjects.each do |s|
+				s.users.where(teacher: true).all.each do |u|
+					if !@resultarray.include?(u)
 						@resultarray << u
 					end
-				else
-					@subjects = Subject.where("name LIKE :search", search: "%#{@query}%").all
-					@subjects.each do |s|
-						s.users.where(teacher: true).all.each do |u|
-							if !@resultarray.include?(u)
-							@resultarray << u
-						 end
-						end
-					end
-					puts @resultarray.size
 				end
-				if @subject == nil
-					@results = User.where(teacher: true).all
-				end
-					#@results = @subject.users.where(teacher: true).all
-					puts @resultarray
-					@results = @resultarray.sort_by{ |t| t.total_likes }.reverse
-				end
+				puts @resultarray.size
 			end
+			if @subject == nil
+				@results = User.where(teacher: true).all
+			end
+		else
+			@resultarray = User.where(teacher: true).all
 		end
+			@details = @subjects = Subject.where("name LIKE :search", search: "%#{@query}%").all
+			@results = @resultarray.sort_by{ |t| t.total_likes }.reverse
+		end
+
 
 
 

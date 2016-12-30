@@ -4,42 +4,41 @@
 <div id="search">
 
   <div style ="margin-left: 400px">
-  <%= form_tag(teachers_path, :method => "get", id: "search-form") do %>
-  <div id="prefetch_search">
-  <%= text_field_tag :subject_query, params[:subject_query], class: "typeahead", placeholder: "Hae opetusta" %>
-  <%= text_field_tag :detail_query, params[:detail_query], class: "typeahead", placeholder: "Tarkenna" %>
-
+    <%= form_tag(teachers_path, :method => "get", id: "search-form") do %>
+    <div id="prefetch_search">
+      <%= text_field_tag :subject_query, @subjects.first.name, class: "typeahead", placeholder: @subjects.first.name %>
+      <%= select_tag :detail_query, options_for_select(@details.collect { |u| [u.detail] }.insert(0, "Opetuksen taso")), class: "selectbox"%>
+    </div>
+    <%= submit_tag "Hae", :class => 'waves-effect waves-light btn' %>
+    <% end %>
   </div>
-  <%= submit_tag "Hae", :class => 'waves-effect waves-light btn' %>
+
+  <h4 class="search-result-header">Tutorit haulla: </h4>
+
+  <% if @subject != nil %>
+  <div id="search-chips">
+    <div class="chip">
+      <%= @subject.name %>
+      <i class="close material-icons">close</i>
+    </div>
+  </div>
   <% end %>
-  </div>
-
-<h4 class="search-result-header">Tutorit haulla: </h4>
-
-<% if @subject != nil %>
-<div id="search-chips">
-  <div class="chip">
-    <%= @subject.name %>
-    <i class="close material-icons">close</i>
-  </div>
-</div>
-<% end %>
 
 
-<ul class="collection search-result-list">
-  <% @results.each do |teacher|%>
-  <%= link_to teacher_path(teacher.id) do %>
+  <ul class="collection search-result-list">
+    <% @results.each do |teacher|%>
+    <%= link_to teacher_path(teacher.id) do %>
     <li class="collection-item avatar search-item">
-    <i><%= image_tag(teacher.avatar.url(:thumb), :class => 'circle') %></i>
-    <span class="title"><%= teacher.first_name %> <%= teacher.last_name %></span>
-    <p><%= teacher.city %><br>
-      Hei olen <%= teacher.first_name %>!
-    </p>
-    <i class="secondary-content"><i class="material-icons">thumb_up</i><%= teacher.total_likes %></i>
+      <i><%= image_tag(teacher.avatar.url(:thumb), :class => 'circle') %></i>
+      <span class="title"><%= teacher.first_name %> <%= teacher.last_name %></span>
+      <p><%= teacher.city %><br>
+        Hei olen <%= teacher.first_name %>!
+      </p>
+      <i class="secondary-content"><i class="material-icons">thumb_up</i><%= teacher.total_likes %></i>
     </li>
     <% end %>
     <% end %>
 
 
-</ul>
+  </ul>
 </div>
