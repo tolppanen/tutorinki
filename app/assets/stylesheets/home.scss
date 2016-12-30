@@ -89,7 +89,6 @@
   font-family: 'Roboto';
 }
 
-
 #index_title {
   margin: auto;
   position: relative;;
@@ -103,6 +102,12 @@
   color: ghostwhite;
   font-family: 'Fredericka the Great', cursive;
   font-size: 140px;
+}
+
+@media only screen and (max-width: 600px) {
+  #index_title h1 {
+    font-size: 80px;
+  }
 }
 
 #index_buttons {
