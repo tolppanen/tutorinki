@@ -118,12 +118,13 @@ top: 50px;
 height: 150px;
 }
 
-.login_button:active {
+/*.login_button:active {
   border: 5px solid grey;
-}
+}*/
 
 .login_button{
   box-sizing: border-box;
+
   height: 30px;
   width: 160px;
   display: table;
@@ -137,6 +138,11 @@ height: 150px;
   float: left;
   margin: 5px;
 }
+
+.login_button:hover {
+  box-shadow: 0 4px 6px 0 rgba(0,0,0,0.24), 0 1px 5px 0 rgba(0,0,0,0.19);
+}
+
   span{
 
   }
@@ -183,4 +189,28 @@ margin: 0px;
   padding: 4px;
   margin: 0 0 0 0;
   border-bottom: none !important;
+}
+
+/*This overrides the materialize.css green with orange on the sign-up page and side-navigation-bar.*/
+input:not([type]):focus:not([readonly]).register-field,
+input[type=text]:focus:not([readonly]).register-field,
+input[type=password]:focus:not([readonly]).register-field,
+input[type=email]:focus:not([readonly]).register-field,
+input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]).register-field,
+input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]).register-field,
+textarea.materialize-textarea:focus:not([readonly]).register-field {
+  border-bottom: none !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  box-shadow: none !important;
+  border-bottom: solid !important;
+  border-width: 1px !important;
+  border-color: rgb(254, 145, 0) !important;
+}
+
+
+[type="checkbox"]:checked+label:before {
+    border-right: 2px solid rgb(254, 145, 0) !important;
+    border-bottom: 2px solid rgb(254, 145, 0) !important;
 }

@@ -6,23 +6,23 @@
   <%= devise_error_messages! %>
 
 <div class="field signup-field">
-    <%= f.text_field :first_name, autofocus: false, :placeholder => 'Etunimi' %>
+    <%= f.text_field :first_name, autofocus: false, :placeholder => 'Etunimi', :class => 'register-field' %>
   </div>
 
     <div class="field signup-field">
-    <%= f.text_field :last_name, autofocus: false, :placeholder => 'Sukunimi' %>
+    <%= f.text_field :last_name, autofocus: false, :placeholder => 'Sukunimi', :class => 'register-field' %>
   </div>
 
   <div class="field signup-field">
-    <%= f.email_field :email, autofocus: false, :placeholder => 'Sähköposti' %>
+    <%= f.email_field :email, autofocus: false, :placeholder => 'Sähköposti', :class => 'register-field' %>
   </div>
 
   <div class="field signup-field">
-    <%= f.password_field :password, autocomplete: "off", :placeholder => 'Salasana' %>
+    <%= f.password_field :password, autocomplete: "off", :placeholder => 'Salasana', :class => 'register-field' %>
   </div>
 
   <div class="field signup-field">
-    <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => 'Vahvista salasana' %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => 'Vahvista salasana', :class => 'register-field' %>
   </div>
 
   <div class="field signup-field">

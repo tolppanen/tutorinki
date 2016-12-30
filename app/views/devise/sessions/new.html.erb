@@ -6,11 +6,11 @@
 
   <div class="profile-edit-view"><%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="">
-      <%= f.email_field :email, autofocus: false, :class => 'email_field', :id => 'login_email', :placeholder => 'Sähköposti', :html => {:autocomplete => "off"} %>
+      <%= f.email_field :email, autofocus: false, :class => 'email_field', :id => 'login_email', :placeholder => 'Sähköposti', :html => {:autocomplete => "off"}, :class => 'register-field' %>
     </div>
     <br>
     <div class="">
-      <%= f.password_field :password, :class => '', :id => 'login_password', autocomplete: "off", :placeholder => 'Salasana' %>
+      <%= f.password_field :password, :class => '', :id => 'login_password', autocomplete: "off", :placeholder => 'Salasana', :class => 'register-field' %>
     </div>
 
     <% if devise_mapping.rememberable? -%>
@@ -20,13 +20,17 @@
       </div>
     <% end -%>
 
-    <div class="actions">
-      <%= f.submit "Kirjaudu", :class => 'login_button confirm_button' %>
+    <div class="row">
+      <div class="col l12 m12 s12">
+        <div class="actions">
+          <%= f.submit "Kirjaudu", :class => 'login_button confirm_button' %> <!--, :class => 'login_button confirm_button' %>-->
+        </div>
+        <% end %>
+      </div>
+      <div class="signup-view">
+        <small>Ei vielä tunnuksia? <%= link_to('Liity', new_user_registration_path) %> ilmaiseksi.</small>
+      </div>
     </div>
-  <% end %>
-  </div>
-  <div class="signup-view">
-    <small>Ei vielä tunnuksia? <%= link_to('Liity', new_user_registration_path) %> ilmaiseksi.</small>
   </div>
   </div>
 

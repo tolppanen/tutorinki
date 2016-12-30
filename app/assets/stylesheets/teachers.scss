@@ -199,9 +199,9 @@ input:not([type]):focus:not([readonly]).edit-description-field,
 input[type=text]:focus:not([readonly]).edit-description-field,
 input[type=password]:focus:not([readonly]).edit-description-field,
 input[type=email]:focus:not([readonly]).edit-description-field,
-input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]).edit-descriptio-field,
-input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]).edit-descriptio-field,
-textarea.materialize-textarea:focus:not([readonly]).edit-descriptio-field {
+input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]).edit-description-field,
+input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]).edit-description-field,
+textarea.materialize-textarea:focus:not([readonly]).edit-description-field {
     border-bottom: none !important;
     /*box-shadow: none !important;*/
     border: solid !important;
