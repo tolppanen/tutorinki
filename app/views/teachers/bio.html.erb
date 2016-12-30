@@ -4,10 +4,55 @@
 </div>
 </div>
 
+
 <div class="row">
 
 
-  <div class="col s12 m12 l6">
+  <div class="col s12 m12 l12">
+    <%= form_for @newskill do |s| %>
+
+      <div class="row">
+
+        <div class="col l2 m2 s12">
+          <div class="valign-wrapper edit-label-right">
+            <p class="edit-label valign">Aine</p>
+            <%= s.label :subject, :class => 'edit-label-invisible' %>
+          </div>
+        </div>
+
+        <div class="col l2 m2 s12">
+          <div id="prefetch">
+            <%= s.text_field :subject, autocomplete: "off", class: "typeahead edit-text-field" %>
+          </div>
+        </div>
+
+        <div class="col l2 m2 s12">
+          <div id="prefetch">
+            <%= s.submit "Lisää", :type => "submit" %>
+          </div>
+        </div>        
+
+      </div>
+
+        <!--<div id="prefetch">
+          <%= s.text_field :subject, placeholder: "Aine", class: "typeahead", placeholder: "Aine" %>
+        </div>
+        <%= s.submit "Lisää", :type => "submit" %>-->
+    <% end %>
+
+    <div class="col l2 m2 s12">
+    </div>
+
+    <div class="col l10 m10 s12">
+      <% @skills.each do |skill| %>
+        <p class="skill-list"><%= skill.subject.name.capitalize %> - <%= skill.subject.detail.capitalize %><%= link_to("Poista", skill_path(skill), :method => "delete", class: "delete-link") %></p>
+      <% end %>
+    </div>
+
+  </div>
+
+
+  <div class="col s12 m12 l12 " style="margin-top: 3em;">
 
     <div class="profile-edit-view">
       <%= form_for(:user, controller: "teacher", action: "save", method: "post" ) do |f| %>
@@ -49,62 +94,20 @@
         </div>
       </div>
 
-    </div>
-
-    </div>
-
-    <div class="col s12 m12 l6">
-      <%= form_for @newskill do |s| %>
-
-
       <div class="row">
         <div class="col l2 m2 s12">
-          <div class="valign-wrapper edit-label-right">
-            <p class="edit-label valign">Aine</p>
-            <%= s.label :subject, :class => 'edit-label-invisible' %>
-          </div>
-        </div>
-        <div class="col l8 m8 s12">
-          <div id="prefetch">
-            <%= s.text_field :subject, autocomplete: "off", class: "typeahead edit-description-field" %>
-          </div>
         </div>
 
-        <div class="col l2 m2 s12">
-          <div id="prefetch">
-            <%= s.submit "Lisää", :type => "submit" %>
+        <div class="col l9 m9 s12">
+          <div class="actions">
+              <%= f.submit "Päivitä tiedot", :class => 'edit-button'%>
           </div>
-        </div>        
 
+        </div>
       </div>
 
-        <!--<div id="prefetch">
-          <%= s.text_field :subject, placeholder: "Aine", class: "typeahead", placeholder: "Aine" %>
-        </div>
-        <%= s.submit "Lisää", :type => "submit" %>-->
-
-
       <% end %>
-
-        <div>
-          <% @skills.each do |skill| %>
-            <div class="center">
-              <div class="section">
-                <p><%= skill.subject.name.capitalize %> - <%= skill.subject.detail.capitalize %><%= link_to("Poista", skill_path(skill), :method => "delete") %></p>
-                <%= link_to("Poista", skill_path(skill), :method => "delete") %>
-              </div>
-            </div>
-          <% end %>
-        </div>
     </div>
-
+  </div>
 </div>
-
-    <div class="center-block">
-
-      <div class="actions">
-        <%= f.submit "Päivitä tiedot", :class => 'edit-button'%>
-      </div>
-
-    </div>
-      <% end %>
+      

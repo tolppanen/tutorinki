@@ -101,6 +101,11 @@ div.comment-button {
 	float:right;
 }*/
 
+.delete-link {
+	font-size: 0.8em;
+	margin-left: 1em;
+}
+
 .edit-text-field {
 	border: solid !important;
 	border-width: 1px !important;
@@ -241,4 +246,8 @@ div.profile-container {
 
 span.twitter-typeahead {
 	width: 100% !important;
+}
+
+p.skill-list {
+	margin-top: 0px !important;
 }
