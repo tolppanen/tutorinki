@@ -46,7 +46,7 @@
         <div class="row">
           <div class="input-field col s12">
             <%= form_tag(teachers_path, :method => "get", id: "search-form") do %>
-            <div id="prefetch_search">
+            <div id="prefetch">
               <%= text_field_tag :subject_query, params[:subject_query], class: "typeahead", placeholder: "Hae opetusta" %>
             </div>
             <%= submit_tag "Hae", :class => 'waves-effect waves-light btn' %>

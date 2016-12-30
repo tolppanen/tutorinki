@@ -16,10 +16,12 @@ class TeachersController < ApplicationController
 	end
 
 	def index
-		#Find relevant teachers, the query should include subject and level presented as integers correspnding
-		#to specific values in the Skill-model
+		if params[:detailed] == true
 		@query = params[:subject_query]
 		@detail = params[:detail_query]
+	else
+		@query = params[:subject_query]
+	end
 		@resultarray = []
 		@subjects = []
 		@details = []
@@ -45,7 +47,7 @@ class TeachersController < ApplicationController
 		else
 			@resultarray = User.where(teacher: true).all
 		end
-			@details = @subjects = Subject.where("name LIKE :search", search: "%#{@query}%").all
+			@details = Subject.where("name LIKE :search", search: "%#{@query}%").all
 			@results = @resultarray.sort_by{ |t| t.total_likes }.reverse
 		end
 

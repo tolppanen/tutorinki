@@ -65,7 +65,7 @@
       subjects.initialize();
 
 
-      $("#prefetch .typeahead").typeahead(null, {
+      $("#prefetch_search .typeahead").typeahead(null, {
         name: 'subject',
         display: function(item){ return item.name + "-" + item.detail },
         source: subjects.ttAdapter(),
@@ -97,7 +97,7 @@
     }
   )
 
-    $("#prefetch_search .typeahead").typeahead(null, {
+    $("#prefetch .typeahead").typeahead(null, {
       name: 'subject',
       display: function(item){ return item.name },
       source: subjects.ttAdapter(),
