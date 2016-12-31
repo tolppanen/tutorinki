@@ -5,10 +5,10 @@
 
 <%= form_for @message, url: '#' do |f| %>
   <div class="form-group">
-    <%= f.label :body %>
+    <%= f.label :Viesti %>
     <%= f.text_field :body, class: 'form-control' %>
-    <small class="text-muted">From 2 to 1000 characters</small>
+    <small class="text-muted">Vähintään 2 merkkiä</small>
   </div>
 
-  <%= f.submit "Post", class: 'btn btn-primary btn-lg' %>
+  <%= f.submit "Lähetä", class: 'btn btn-primary btn-lg' %>
 <% end %>

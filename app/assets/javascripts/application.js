@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require cable
 //= require bootstrap-typeahead-rails
 //= require react
@@ -80,6 +79,22 @@
         highlight: true
       }
     )
+
+    $("#prefetch_add .typeahead").typeahead(null, {
+      name: 'subject',
+      display: function(item){ return item.name + "-" + item.detail },
+      source: subjects.ttAdapter(),
+      offset: true,
+      templates: {
+        suggestion: function(data) {
+          return '<p><strong>' + data.name + '</strong> - ' + data.detail + '</p>';
+        }
+      },
+      hint: false,
+      limit: 10,
+      highlight: true
+    }
+  )
 
     $("#prefetch_detail .typeahead").typeahead(null, {
       name: 'subject',

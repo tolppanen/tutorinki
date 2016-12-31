@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 20161228124653) do
     t.datetime "avatar_updated_at"
     t.string   "city"
     t.text     "bio"
-    t.integer  "price"
+    t.integer  "price",                  default: 20
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

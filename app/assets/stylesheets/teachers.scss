@@ -133,11 +133,18 @@ div.comment-button {
 		margin-right: 20px !important;
 	}
 
+
 }
 
 .edit-label {
   font-size: 1em;
   font-weight: bolder !important;
+}
+
+@media only screen and (min-width: 992px) {
+	#search {
+		left: 200px;
+	}
 }
 
 @media only screen and (min-width: 600px) {
@@ -254,4 +261,12 @@ span.twitter-typeahead {
 
 p.skill-list {
 	margin-top: 0px !important;
+}
+
+#prefetch_add {
+  width: 140px;
+}
+
+.section ul {
+
 }

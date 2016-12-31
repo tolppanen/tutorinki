@@ -2,13 +2,62 @@
 
 	<div class="section">
 		<div class="row">
+			<div class="col s12 l6 profile-card">
+				<div class="row">
+					<div class="col s9 l9 m9 center">
+						<div class="card horizontal">
+							<div class="card-image">
+								<%= image_tag(@picture.url(:medium), :class => 'circle') %>
+							</div>
+							<div class="card-stacked">
+								<div class="card-content">
+									<i class="material-icons">attach_money</i><%= @teacher.price %>€/h<i class="material-icons">grade</i>Vahvistettu
+								</div>
+								<div class="card-action">
+									<a>
+										<%= form_for @friendship do |f| %>
+										<%= f.hidden_field :user, :value => @teacher.id %>
+										<%= f.submit "Ota yhteyttä", :type => "submit", :class => "btn waves-effect" %>
+										<% end %>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="description">
+							<%= @teacher.bio %>
+						</div>
+
+						<div>
+							<% if user_signed_in? %>
+							<h5 class="">Kommentit</h5>
+							<ul class="collection">
+								<% @comments.each do |comment| %>
+								<li class="collection-item avatar">
+									<!--<img src="images/yuna.jpg" alt="" class="circle">-->
+									<%= image_tag(comment.poster.avatar(:medium), :class => 'circle') %>
+									<span class="title"><%= comment.poster.first_name %></span>
+									<p><%= comment.body %></p>
+									<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+								</li>
+								<% end %>
+							</ul>
+							<% end %>
+						</div>
+
+					</div>
+				</div>
+
+
+
+			</div>
+
 			<div class="col s12 l6">
 				<h3 class="center orange-text profile-header"><%= @teacher.first_name %> <%= @teacher.last_name %></h2>
 					<div class="center location">
 						<i class="material-icons orange-text">place</i><%= @teacher.city%>
 					</div>
 					<% @subjects.each do |subject| %>
-					<div class="center">
+					<div class="center subject_listing">
 						<div class="divider"></div>
 						<div class="section">
 							<h5><%= subject.capitalize %></h5>
@@ -21,15 +70,14 @@
 									<%= f.hidden_field :subject, :value => subject %>
 									<%= f.hidden_field :detail, :value => s %>
 									<% if @teacher.skills.where(subject: @allsubjects.where(name: subject, detail: s)).first.likes.where(user_id: current_user.id).size != 0 %>
-									<%= f.submit "Tykätty", :type => "submit", :class => "btn waves-effect" %>
+									<%= f.submit "+", :type => "submit", :class => "btn-floating disabled" %>
 									<% else %>
-									<%= f.submit 	"Tykkää", :type => "submit", :class => "btn waves-effect" %>
+									<%= f.submit 	"+", :type => "submit", :class => "btn-floating red" %>
 									<% end %>
 									<% end %>
-									<h3>
+									<strong>
 									<%=  @teacher.skills.where(subject: @allsubjects.where(name: subject, detail: s).first).first.likes.count %>
-								</h3>
-									<i class="material-icons" id="subject">thumb_up</i>
+								 <i class="material-icons" id="subject">thumb_up</i></strong>
 								</li>
 								<% end %>
 							</ul>
@@ -44,36 +92,10 @@
 					<% end %>
 				</div>
 				<% end %>
-				<div class="col s12 l6 profile-card">
-					<div class="row">
-						<div class="col s9 l9 m9 center">
-							<div class="card horizontal">
-								<div class="card-image">
-									<%= image_tag(@picture.url(:medium), :class => 'circle') %>
-								</div>
-								<div class="card-stacked">
-									<div class="card-content">
-										<i class="material-icons">attach_money</i><%= @teacher.price %>€/h<i class="material-icons">grade</i>Verified
-									</div>
-									<div class="card-action">
-										<a>
-											<%= form_for @friendship do |f| %>
-											<%= f.hidden_field :user, :value => @teacher.id %>
-											<%= f.submit "Ota yhteyttä", :type => "submit", :class => "btn waves-effect" %>
-											<% end %>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="description">
-								<%= @teacher.bio %>
-							</div>
-						</div>
-					</div>
-				</div>
+
 			</div>
 		</div>
-		<div class="section">
+
 			<div class="row">
 				<div class="col s12 l6">
 					<% if user_signed_in? && current_user.friends.include?(@teacher) %>
@@ -100,23 +122,7 @@
 					<% end %>
 					<% end %>
 				</div>
-				<div class="col s12 l6">
-					<% if user_signed_in? %>
-					<h5 class="">Kommentit</h5>
-					<ul class="collection">
-						<% @comments.each do |comment| %>
-						<li class="collection-item avatar">
-							<!--<img src="images/yuna.jpg" alt="" class="circle">-->
-							<%= image_tag(comment.poster.avatar(:medium), :class => 'circle') %>
-							<span class="title"><%= comment.poster.first_name %></span>
-							<p><%= comment.body %></p>
-							<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-						</li>
-						<% end %>
-					</ul>
-					<% end %>
-				</div>
 			</div>
-		</div>
+
 	</div>
 </div>
