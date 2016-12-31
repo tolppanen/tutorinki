@@ -5,10 +5,9 @@
 
   <div style ="margin-left: 400px">
     <%= form_tag(teachers_path, :method => "get", id: "search-form") do %>
-    <div id="prefetch_search">
-      <%= text_field_tag :subject_query, @subject, class: "typeahead", placeholder: "Oppiaine" %>
-      <!-- <%= select_tag :detail_query, options_for_select(@details.collect { |u| [u.detail] }.insert(0, "Opetuksen taso")), class: "selectbox"%> -->
-      <%= hidden_field :detailed, value: true %>
+    <div id="prefetch">
+      <%= text_field_tag :subject_query, @subject, class: "typeahead", value: @subject%>
+      <%= select_tag :detail_query, options_for_select(@details.collect { |u| [u.detail] }.insert(0, "Opetuksen taso")), class: "selectbox"%>
     </div>
     <%= submit_tag "Hae", :class => 'waves-effect waves-light btn' %>
     <% end %>
@@ -16,14 +15,7 @@
 
   <h4 class="search-result-header">Tutorit haulla </h4>
 
-  <% if @subject != nil %>
-  <div id="search-chips">
-    <div class="chip">
-      <%= @subject.name %>
-      <i class="close material-icons">close</i>
-    </div>
-  </div>
-  <% end %>
+
 
 
   <ul class="collection search-result-list">

@@ -16,20 +16,17 @@ class TeachersController < ApplicationController
 	end
 
 	def index
-		if params[:detailed] == true
 		@query = params[:subject_query]
 		@detail = params[:detail_query]
-	else
-		@query = params[:subject_query]
-	end
 		@resultarray = []
 		@subjects = []
 		@details = []
 		@results = User.where(teacher: true).all
 		if @query != nil && @query != ""
 			@query.downcase!
-			if @detail != nil && @detail != ""
-				@subjects = Subject.where("name LIKE :search", search: "%#{@query}%").where(detail: @detail)
+
+			if @detail == "Opetuken taso"
+				@subjects = Subject.where("name LIKE :search", search: "%#{@query}%").all
 			else
 				@subjects = Subject.where("name LIKE :search", search: "%#{@query}%").all
 			end
@@ -41,12 +38,14 @@ class TeachersController < ApplicationController
 				end
 				puts @resultarray.size
 			end
-			if @subject == nil
-				@results = User.where(teacher: true).all
-			end
 		else
 			@resultarray = User.where(teacher: true).all
 		end
+			if @subjects.first != nil
+				@subject = @subjects.first.name
+			else
+				@subject = ""
+			end
 			@details = Subject.where("name LIKE :search", search: "%#{@query}%").all
 			@results = @resultarray.sort_by{ |t| t.total_likes }.reverse
 		end
