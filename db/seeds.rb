@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-laura = User.create!(:email => "laura@lehtori.com", :first_name => "Laura", :last_name => "Lehtori", :password => "salasana", :teacher => true)
-teemu = User.create!(:email => "teemu@tuutori.com", :first_name => "Teemu", :last_name => "Tuutori", :password => "salasana", :teacher => true)
-aatu = User.create!(:email =>  "aatu@auttavainen.com", :first_name => "Aatu", :last_name => "Auttavainen", :password => "salasana", :teacher => true)
+laura = User.create!(:email => "laura@lehtori.com", :first_name => "Laura", :last_name => "Lehtori", :password => "salasana", :teacher => true, :price => 20, :city => "Helsinki")
+teemu = User.create!(:email => "teemu@tuutori.com", :first_name => "Teemu", :last_name => "Tuutori", :password => "salasana", :teacher => true, :price => 20, :city => "Helsinki")
+aatu = User.create!(:email =>  "aatu@auttavainen.com", :first_name => "Aatu", :last_name => "Auttavainen", :password => "salasana", :teacher => true, :price => 20, :city => "Helsinki")
 
 hanna = User.create!(:email =>  "hanna@hakija.com", :first_name => "Hanna", :last_name => "Hakija", :password => "salasana", :teacher => false)
 onni = User.create!(:email =>  "onni@oppija.com", :first_name => "Onni", :last_name => "Oppija", :password => "salasana", :teacher => false)
